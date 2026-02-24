@@ -102,19 +102,6 @@
             transform: translateY(0);
         }
 
-        /* Cursor */
-        #cursor {
-            width: 20px;
-            height: 20px;
-            border: 1.5px solid var(--walnut);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease-out;
-            transform: translate(-50%, -50%);
-        }
-
         /* Product Cards */
         .product-card {
             background: #ffffff;
@@ -193,8 +180,6 @@
     <div id="loader">
         <h2 class="text-white tracking-[0.8em] text-xs font-bold uppercase animate-pulse">Mironix</h2>
     </div>
-
-    <div id="cursor"></div>
 
     <nav class="fixed top-0 w-full z-50 py-2 px-8 md:px-12 flex justify-between items-center">
         <a href="index.html" class="flex items-center gap-3">
@@ -340,18 +325,6 @@
                 loader.style.opacity = '0';
                 setTimeout(() => loader.style.display = 'none', 800);
             }, 1000);
-        });
-
-        // Custom Cursor Logic
-        const cursor = document.getElementById('cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('a, button, .product-card').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(3)');
-            el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
         });
 
         // Scroll Animation Logic
