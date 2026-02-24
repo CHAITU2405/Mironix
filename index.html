@@ -737,11 +737,9 @@
                 </div>
 
                 <!-- Swiper Navigation Buttons -->
-                <div
-                    class="swiper-button-next hidden md:flex !text-[#6d3d14] !right-0 md:!right-4 drop-shadow-md !top-[250px]">
+                <div class="swiper-button-next !text-[#6d3d14] !-right-2 md:!right-4 drop-shadow-md !top-[250px]">
                 </div>
-                <div
-                    class="swiper-button-prev hidden md:flex !text-[#6d3d14] !left-0 md:!left-4 drop-shadow-md !top-[250px]">
+                <div class="swiper-button-prev !text-[#6d3d14] !-left-2 md:!left-4 drop-shadow-md !top-[250px]">
                 </div>
             </div>
         </div>
@@ -879,8 +877,7 @@
 
         // Initialize Swiper for Collections Categories
         var collectionsSwiper = new Swiper(".collectionsSwiper", {
-            slidesPerView: 1.25,
-            centeredSlides: true,
+            slidesPerView: 1,
             spaceBetween: 20,
             loop: true,
             navigation: {
@@ -890,12 +887,10 @@
             breakpoints: {
                 768: {
                     slidesPerView: 2,
-                    centeredSlides: false,
                     spaceBetween: 30,
                 },
                 1024: {
                     slidesPerView: 3,
-                    centeredSlides: false,
                     spaceBetween: 40,
                 }
             }
