@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -581,104 +581,182 @@
                     for every aspect of your life.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-                <!-- Card 1 -->
-                <div class="group relative bg-cover bg-center p-12 reveal rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer h-[500px] flex flex-col justify-end"
-                    onclick="nav('home.html')"
-                    style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop');">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500">
+            <div class="swiper collectionsSwiper relative px-4 md:px-12">
+                <div class="swiper-wrapper">
+                    <!-- Card 1 -->
+                    <div class="swiper-slide group relative bg-cover bg-center p-12 reveal rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer h-[500px] flex flex-col justify-end"
+                        onclick="nav('home.html')"
+                        style="background-image: url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop');">
+                        <div
+                            class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500">
+                        </div>
+
+                        <div class="relative z-10 text-white">
+                            <div
+                                class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-[#6d3d14] transition-all duration-500 border border-white/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                                </svg>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 serif">Home Furniture</h3>
+                            <p class="text-sm opacity-80 mb-10 leading-relaxed font-light">
+                                Elegant Sofas, Modular Wardrobes, and Artistic Wall Separators to redefine your living
+                                space.
+                            </p>
+                            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                                <span>Explore Collection</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor"
+                                    class="w-4 h-4 transition-transform group-hover:translate-x-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="relative z-10 text-white">
+                    <!-- Card 2 -->
+                    <div class="swiper-slide group relative bg-cover bg-center p-12 reveal rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer h-[500px] flex flex-col justify-end"
+                        onclick="nav('office.html')"
+                        style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000&auto=format&fit=crop');">
                         <div
-                            class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-[#6d3d14] transition-all duration-500 border border-white/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                            </svg>
+                            class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500">
                         </div>
-                        <h3 class="text-3xl font-bold mb-4 serif">Home Furniture</h3>
-                        <p class="text-sm opacity-80 mb-10 leading-relaxed font-light">
-                            Elegant Sofas, Modular Wardrobes, and Artistic Wall Separators to redefine your living
-                            space.
-                        </p>
-                        <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                            <span>Explore Collection</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-4 h-4 transition-transform group-hover:translate-x-2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                            </svg>
+
+                        <div class="relative z-10 text-white">
+                            <div
+                                class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-[#6d3d14] transition-all duration-500 border border-white/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 serif">Office Systems</h3>
+                            <p class="text-sm opacity-80 mb-10 leading-relaxed font-light">
+                                Ergonomic Workstations, Executive Suites, and Conference Units for the modern
+                                professional.
+                            </p>
+                            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                                <span>Explore Collection</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor"
+                                    class="w-4 h-4 transition-transform group-hover:translate-x-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Card 3 -->
+                    <div class="swiper-slide group relative bg-cover bg-center p-12 reveal rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer h-[500px] flex flex-col justify-end"
+                        onclick="nav('school.html')"
+                        style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000&auto=format&fit=crop');">
+                        <div
+                            class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-80"></div>
+
+                        <div class="relative z-10 text-white">
+                            <div
+                                class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-[#6d3d14] transition-all duration-500 border border-white/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 serif">Institutional</h3>
+                            <p class="text-sm opacity-80 mb-10 leading-relaxed font-light">
+                                Durable Classroom Seating, Lab Systems, and Public Area Solutions built for heavy use.
+                            </p>
+                            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                                <span>Explore Collection</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor"
+                                    class="w-4 h-4 transition-transform group-hover:translate-x-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="swiper-slide group relative bg-cover bg-center p-12 reveal rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer h-[500px] flex flex-col justify-end"
+                        onclick="nav('cafe.html')"
+                        style="background-image: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1000&auto=format&fit=crop');">
+                        <div
+                            class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-80"></div>
+
+                        <div class="relative z-10 text-white">
+                            <div
+                                class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-[#6d3d14] transition-all duration-500 border border-white/30">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M13.5 21v-16.2a.6.6 0 0 1 .6-.6h3a.6.6 0 0 1 .6.6V21M4.5 21v-16.2a.6.6 0 0 1 .6-.6h3a.6.6 0 0 1 .6.6V21M1.5 21h21" />
+                                </svg>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 serif">Cafe & Restaurant</h3>
+                            <p class="text-sm opacity-80 mb-10 leading-relaxed font-light">
+                                Vibrant Seating, Sturdy Tables, and Cozy Lounge sets for the perfect dining experience.
+                            </p>
+                            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                                <span>Explore Collection</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor"
+                                    class="w-4 h-4 transition-transform group-hover:translate-x-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="swiper-slide group relative bg-cover bg-center p-12 reveal rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer h-[500px] flex flex-col justify-end"
+                        onclick="window.location.href='cnc.html'"
+                        style="background-image: url('https://images.unsplash.com/photo-1565439390116-2fb9a781b0f5?q=80&w=1000&auto=format&fit=crop');">
+                        <div
+                            class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-80"></div>
+
+                        <div class="relative z-10 text-white">
+                            <div
+                                class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-[#6d3d14] transition-all duration-500 border border-white/30">
+                                <i class="ph ph-gear text-[32px]"></i>
+                            </div>
+                            <h3 class="text-3xl font-bold mb-4 serif">CNC Machining</h3>
+                            <p class="text-sm opacity-80 mb-10 leading-relaxed font-light">
+                                Precision Engineering, Custom Routing, and Advanced Laser Cutting solutions.
+                            </p>
+                            <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
+                                <span>Explore Collection</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor"
+                                    class="w-4 h-4 transition-transform group-hover:translate-x-2">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
-                <!-- Card 2 -->
-                <div class="group relative bg-cover bg-center p-12 reveal rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer h-[500px] flex flex-col justify-end"
-                    onclick="nav('office.html')"
-                    style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1000&auto=format&fit=crop');">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500">
-                    </div>
-
-                    <div class="relative z-10 text-white">
-                        <div
-                            class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-[#6d3d14] transition-all duration-500 border border-white/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-4 serif">Office Systems</h3>
-                        <p class="text-sm opacity-80 mb-10 leading-relaxed font-light">
-                            Ergonomic Workstations, Executive Suites, and Conference Units for the modern professional.
-                        </p>
-                        <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                            <span>Explore Collection</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-4 h-4 transition-transform group-hover:translate-x-2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="group relative bg-cover bg-center p-12 reveal rounded-3xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 cursor-pointer h-[500px] flex flex-col justify-end"
-                    onclick="nav('school.html')"
-                    style="background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1000&auto=format&fit=crop');">
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-500">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-80"></div>
-
-                    <div class="relative z-10 text-white">
-                        <div
-                            class="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-8 text-white group-hover:bg-white group-hover:text-[#6d3d14] transition-all duration-500 border border-white/30">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-8 h-8">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-3xl font-bold mb-4 serif">Institutional</h3>
-                        <p class="text-sm opacity-80 mb-10 leading-relaxed font-light">
-                            Durable Classroom Seating, Lab Systems, and Public Area Solutions built for heavy use.
-                        </p>
-                        <div class="flex items-center gap-2 text-[10px] font-bold tracking-widest uppercase">
-                            <span>Explore Collection</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-4 h-4 transition-transform group-hover:translate-x-2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+                <!-- Swiper Navigation Buttons -->
+                <div class="swiper-button-next !text-[#6d3d14] !right-0 md:!right-4 drop-shadow-md !top-[250px]"></div>
+                <div class="swiper-button-prev !text-[#6d3d14] !left-0 md:!left-4 drop-shadow-md !top-[250px]"></div>
             </div>
         </div>
-        </div>
+
     </section>
 
     <footer id="contact" class="py-20 px-6 bg-[#1a1a1a] text-[#fcfaf7] relative overflow-hidden">
@@ -718,11 +796,11 @@
         <div
             class="max-w-7xl mx-auto mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center bg-transparent">
             <div class="text-[10px] text-white/20 tracking-widest uppercase">
-                © 2025 Mironix Furniture Pvt Ltd.
+                Â© 2025 Mironix Furniture Pvt Ltd.
             </div>
             <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
                 class="mt-4 md:mt-0 text-[10px] text-white/40 hover:text-white tracking-widest uppercase transition flex items-center gap-2">
-                Back to Top <span class="text-lg">↑</span>
+                Back to Top <span class="text-lg">â†‘</span>
             </button>
         </div>
     </footer>
@@ -822,6 +900,27 @@
             }
         });
 
+        // Initialize Swiper for Collections Categories
+        var collectionsSwiper = new Swiper(".collectionsSwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            navigation: {
+                nextEl: ".collectionsSwiper .swiper-button-next",
+                prevEl: ".collectionsSwiper .swiper-button-prev",
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                }
+            }
+        });
+
         // Custom Auto-scroll Resume Logic (5s delay)
         const featuredContainer = document.querySelector('.featuredSwiper');
         let autoplayResumeTimer;
@@ -899,4 +998,4 @@
     </script>
 </body>
 
-</html> 
+</html>
