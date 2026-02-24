@@ -879,7 +879,8 @@
 
         // Initialize Swiper for Collections Categories
         var collectionsSwiper = new Swiper(".collectionsSwiper", {
-            slidesPerView: 1,
+            slidesPerView: 1.25,
+            centeredSlides: true,
             spaceBetween: 20,
             loop: true,
             navigation: {
@@ -889,10 +890,12 @@
             breakpoints: {
                 768: {
                     slidesPerView: 2,
+                    centeredSlides: false,
                     spaceBetween: 30,
                 },
                 1024: {
                     slidesPerView: 3,
+                    centeredSlides: false,
                     spaceBetween: 40,
                 }
             }
