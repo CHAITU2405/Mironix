@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mironix | Office Systems</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        :root {
+            /* Palette */
+            --pale-oak: #cdc5b4;
+            --ink-black: #001524;
+            --blue-slate: #6a6b83;
+            --walnut: #6d3d14;
+            --cream-solid: #fdfbf7;
+        }
+
+        button:focus {
+            outline: none;
+        }
+
+        html.lenis {
+            height: auto;
+        }
+
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+
+        .lenis.lenis-scrolling iframe {
+            pointer-events: none;
+        }
+
+        body {
+            background-color: var(--pale-oak);
+            color: var(--ink-black);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- NAVBAR STYLING (GLASSMORPHIC) --- */
+        nav {
+            background: rgba(253, 251, 247, 0.7);
+            /* Frosted glass base */
+            backdrop-filter: blur(15px) saturate(120%);
+            -webkit-backdrop-filter: blur(15px) saturate(120%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            /* Frosted glass border */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            transition: all 0.3s ease;
+        }
+
+        /* --- HEADER STYLING (STATIC INTRO) --- */
+        header {
+            position: relative;
+            height: 60vh;
+            background-image:
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+                url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2600&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            /* Parallax effect */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cursor */
+        #cursor {
+            width: 20px;
+            height: 20px;
+            border: 1.5px solid var(--walnut);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease-out;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Product Cards */
+        .product-card {
+            background: #ffffff;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            transition: transform 0.7s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Buttons */
+        .btn-walnut {
+            background: var(--walnut);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-walnut:hover {
+            background: var(--ink-black);
+            transform: scale(1.05);
+        }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: var(--ink-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.8s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="loader">
+        <h2 class="text-white tracking-[0.8em] text-xs font-bold uppercase animate-pulse">Mironix</h2>
+    </div>
+
+    <div id="cursor"></div>
+
+    <nav class="fixed top-0 w-full z-50 py-2 px-8 md:px-12 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-3">
+            <div class="text-2xl font-bold tracking-tighter uppercase text-[#3d2b1f] serif">Mironix</div>
+        </a>
+
+        <div class="hidden md:flex space-x-12 text-[11px] font-bold tracking-[0.2em] text-[#3d2b1f]">
+            <a href="index.html"
+                class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">HOME</a>
+            <a href="home.html"
+                class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">LIVING</a>
+            <a href="office.html" class="text-[#6d3d14] transition py-2 border-b-2 border-[#6d3d14]">OFFICE</a>
+            <a href="school.html"
+                class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">INSTITUTIONAL</a>
+            <a href="cafe.html"
+                class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CAFE</a>
+            <a href="cnc.html"
+                class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CNC</a>
+        </div>
+    </nav>
+
+    <!-- Header Hero -->
+    <header>
+        <div class="text-white z-10 px-6 reveal">
+            <h1 class="text-4xl md:text-6xl serif mb-4 drop-shadow-lg">Office Systems</h1>
+            <p
+                class="text-white/80 text-sm md:text-base max-w-2xl mx-auto uppercase tracking-[0.3em] font-light drop-shadow">
+                Professional Workspace Solutions
+            </p>
+        </div>
+    </header>
+
+    <!-- Product Grid -->
+    <section class="py-20 px-6 bg-[#fcfaf7]">
+        <div class="max-w-[1400px] mx-auto">
+            <!-- Category Filter -->
+            <div id="filter-bar" class="flex flex-wrap justify-center gap-4 mb-16 reveal">
+                <button
+                    class="category-btn active bg-[#2c1e14] text-white text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14] transition-all duration-300"
+                    data-filter="all">All</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="executive">Executive</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="ergonomics">Ergonomics</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="collaboration">Collaboration</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="focus-zones">Focus Zones</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="storage">Storage</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="reception">Reception</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="breakout">Breakout</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="accessories">Accessories</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="organization">Organization</button>
+            </div>
+
+            <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 min-h-[600px]">
+                <!-- JavaScript will populate this -->
+            </div>
+
+            <!-- Pagination Controls -->
+            <div id="pagination" class="mt-20 flex flex-col items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <button id="prev-btn"
+                        class="w-12 h-12 rounded-full border border-[#2c1e14]/20 flex items-center justify-center hover:bg-[#2c1e14] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none">
+                        <i class="ph ph-caret-left"></i>
+                    </button>
+                    <div id="page-numbers" class="flex gap-2">
+                        <!-- Page buttons will be injected here -->
+                    </div>
+                    <button id="next-btn"
+                        class="w-12 h-12 rounded-full border border-[#2c1e14]/20 flex items-center justify-center hover:bg-[#2c1e14] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none">
+                        <i class="ph ph-caret-right"></i>
+                    </button>
+                </div>
+                <p id="pagination-info" class="text-[10px] font-bold tracking-[0.2em] uppercase text-[#6d3d14]/60">
+                    Showing 1-6 of 9 items</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Footer -->
+    <footer id="contact" class="py-20 px-6 bg-[#1a1a1a] text-[#fcfaf7] relative overflow-hidden">
+        <div class="absolute top-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+        <div class="max-w-7xl mx-auto reveal grid md:grid-cols-12 gap-16">
+            <div class="md:col-span-5">
+                <h2 class="text-6xl md:text-7xl mb-8 serif italic text-[#cdc5b4] leading-none">Transform <br>your space.
+                </h2>
+                <div class="flex gap-4 mt-12">
+                    <a href="#"
+                        class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition">IG</a>
+                    <a href="#"
+                        class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition">FB</a>
+                    <a href="#"
+                        class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition">IN</a>
+                </div>
+            </div>
+            <div class="md:col-span-3 space-y-8">
+                <p class="opacity-40 text-xs tracking-[0.3em] uppercase mb-8">Headquarters</p>
+                <div class="text-[11px] tracking-widest leading-loose">
+                    <p class="text-[#cdc5b4] font-bold mb-4 uppercase">Office & Workshop</p>
+                    <p class="text-white/60">Shivnand Nagar, Raipur (C.G.) 492008</p>
+                    <p class="text-white/60">Bhilai (C.G.) 490001</p>
+                </div>
+            </div>
+            <div class="md:col-span-4 space-y-8">
+                <p class="opacity-40 text-xs tracking-[0.3em] uppercase mb-8">Get In Touch</p>
+                <div class="text-[11px] tracking-widest leading-loose">
+                    <p class="text-[#cdc5b4] font-bold mb-4 uppercase">Contact Leadership</p>
+                    <p class="text-white/60">M Vinod Kumar: +91 74002 64528</p>
+                    <p class="text-white/60">Santosh Kumar: +91 88854 97802</p>
+                    <a href="mailto:mironix2025@gmail.com"
+                        class="block mt-4 text-[#cdc5b4] decoration-1 hover:underline underline-offset-4">mironix2025@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div
+            class="max-w-7xl mx-auto mt-32 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center bg-transparent">
+            <div class="text-[10px] text-white/20 tracking-widest uppercase">
+                © 2025 Mironix Furniture Pvt Ltd.
+            </div>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                class="mt-4 md:mt-0 text-[10px] text-white/40 hover:text-white tracking-widest uppercase transition flex items-center gap-2">
+                Back to Top <span class="text-lg">↑</span>
+            </button>
+        </div>
+    </footer>
+
+    <script>
+        // Loader Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 800);
+            }, 1000);
+            renderProducts();
+        });
+
+        // Custom Cursor Logic
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(3)');
+            el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+        });
+
+        // Scroll Animation Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Add a small delay for observing elements
+        setTimeout(() => {
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }, 500);
+
+        // Initialize Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        // --- PRODUCT CATALOG LOGIC ---
+        const gridContainer = document.getElementById('product-grid');
+        const paginationInfo = document.getElementById('pagination-info');
+        const pageNumbersContainer = document.getElementById('page-numbers');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+
+        let currentCategory = 'all';
+        let currentPage = 1;
+        const itemsPerPage = 6;
+
+        const products = [
+            { id: 1, category: 'executive', title: "Chairman's Mahogany Desk", price: '₹ 35,999', img: 'images/office/office1.png', desc: 'Masterpiece of joinery with rich mahogany finish and leather pad.' },
+            { id: 2, category: 'ergonomics', title: 'ErgoPro Spine Support', price: '₹ 18,500', img: 'images/office/office2.png', desc: 'Adaptive lumbar support and 4D armrests for 12+ hour workdays.' },
+            { id: 3, category: 'collaboration', title: 'Visionary Conf. Table', price: '₹ 1,20,000', img: 'images/office/office3.png', desc: '12-seater centerpiece with sleek glass top and robust oak legs.' },
+            { id: 4, category: 'focus-zones', title: 'Compact Workstation', price: '₹ 12,999', img: 'images/office/office4.png', desc: 'Efficient footprint with built-in storage and privacy screen.' },
+            { id: 5, category: 'storage', title: 'Secure File Cabinet', price: '₹ 14,500', img: 'images/office/office5.png', desc: 'Heavy-duty steel construction with centralized locking system.' },
+            { id: 6, category: 'reception', title: 'Welcome Desk Series', price: '₹ 42,000', img: 'images/office/office6.png', desc: 'Curved modular design to create a striking first impression.' },
+            { id: 7, category: 'breakout', title: 'Modular Lounge Seating', price: '₹ 25,500', img: 'images/office/office7.png', desc: 'Configurable soft seating for informal meetings and relaxation.' },
+            { id: 8, category: 'accessories', title: 'Mobile Writing Board', price: '₹ 8,990', img: 'images/office/office8.png', desc: 'Double-sided magnetic surface with easy-glide castor wheels.' },
+            { id: 9, category: 'organization', title: 'Mobile Pedestal', price: '₹ 4,500', img: 'images/office/office9.png', desc: '3-drawer compact storage that fits perfectly under standard desks.' }
+        ];
+
+        function getIcon(category) {
+            const icons = {
+                'executive': 'desk',
+                'ergonomics': 'chair',
+                'collaboration': 'users-three',
+                'focus-zones': 'laptop',
+                'storage': 'files',
+                'reception': 'handshake',
+                'breakout': 'armchair',
+                'accessories': 'presentation-chart',
+                'organization': 'archive-box'
+            };
+            return icons[category] || 'briefcase';
+        }
+
+        function renderProducts() {
+            const filteredProducts = currentCategory === 'all'
+                ? products
+                : products.filter(p => p.category === currentCategory);
+
+            const totalItems = filteredProducts.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+            if (currentPage > totalPages) currentPage = totalPages || 1;
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+            const paginatedItems = filteredProducts.slice(startIndex, endIndex);
+
+            gridContainer.innerHTML = paginatedItems.map((item, index) => `
+                <div class="group cursor-pointer flex flex-col gap-4 product-card-item opacity-0 transform translate-y-8"
+                     data-category="${item.category}"
+                     style="transition-delay: ${index * 100}ms">
+                    <div class="overflow-hidden rounded-sm relative aspect-[4/3] shadow-md">
+                        <img src="${item.img}"
+                            class="w-full h-full object-cover transition duration-1000 transform group-hover:scale-110"
+                            alt="${item.title}">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-sm text-[#6d3d14]">
+                            <i class="ph ph-${getIcon(item.category)} text-xl"></i>
+                        </div>
+                    </div>
+                    <div class="text-left">
+                        <p class="text-[9px] font-bold tracking-[0.2em] uppercase text-[#6d3d14] mb-2">${item.category.replace('-', ' ')}</p>
+                        <h3 class="text-xl serif text-[#2c1e14] mb-2 leading-tight">${item.title}</h3>
+                        <p class="text-xs text-[#5a5a5a] font-light leading-relaxed mb-4 line-clamp-2">${item.desc}</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-lg font-serif italic text-[#2c1e14]">${item.price}</span>
+                            <button class="text-[9px] font-bold tracking-[0.15em] uppercase border-b border-[#2c1e14] pb-0.5 hover:text-[#6d3d14] hover:border-[#6d3d14] transition">View</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            requestAnimationFrame(() => {
+                document.querySelectorAll('.product-card-item').forEach(item => {
+                    item.classList.remove('opacity-0', 'translate-y-8');
+                });
+            });
+
+            paginationInfo.textContent = `Showing ${totalItems === 0 ? 0 : startIndex + 1}-${endIndex} of ${totalItems} items`;
+
+            renderPageNumbers(totalPages);
+
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+            if (startIndex > 0 || currentPage > 1) {
+                const gridTop = gridContainer.getBoundingClientRect().top + window.pageYOffset - 150;
+                window.scrollTo({ top: gridTop, behavior: 'smooth' });
+            }
+
+            if (typeof lenis !== 'undefined') {
+                setTimeout(() => lenis.resize(), 100);
+            }
+        }
+
+        function renderPageNumbers(totalPages) {
+            pageNumbersContainer.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const btn = document.createElement('button');
+                btn.className = `w-12 h-12 rounded-full border text-xs font-bold transition-all duration-300 ${i === currentPage
+                    ? 'bg-[#2c1e14] text-white border-[#2c1e14]'
+                    : 'border-[#2c1e14]/20 text-[#2c1e14] hover:border-[#2c1e14]'
+                    }`;
+                btn.textContent = i;
+                btn.addEventListener('click', () => {
+                    currentPage = i;
+                    renderProducts();
+                });
+                pageNumbersContainer.appendChild(btn);
+            }
+        }
+
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryButtons.forEach(b => {
+                    b.classList.remove('active', 'bg-[#2c1e14]', 'text-white');
+                    b.classList.add('border-[#2c1e14]/20');
+                });
+                btn.classList.add('active', 'bg-[#2c1e14]', 'text-white');
+                btn.classList.remove('border-[#2c1e14]/20');
+
+                currentCategory = btn.getAttribute('data-filter');
+                currentPage = 1;
+                renderProducts();
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                renderProducts();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const filteredProducts = currentCategory === 'all'
+                ? products
+                : products.filter(p => p.category === currentCategory);
+            const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderProducts();
+            }
+        });
+    </script>
+</body>
+
+</html>
