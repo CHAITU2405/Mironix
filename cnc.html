@@ -77,9 +77,10 @@
         header {
             position: relative;
             height: 60vh;
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1565439390116-2fb9a781b0f5?q=80&w=2600&auto=format&fit=crop');
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('images/cnc/main.png');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -272,15 +273,15 @@
 
     <script>
         const products = [
-            { id: 1, category: 'routing', title: 'Industrial CNC Router', price: '₹ 4,50,000', img: 'https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?q=80&w=800&auto=format&fit=crop', desc: 'Heavy-duty 3-axis CNC router for woodworking and sign making.' },
-            { id: 2, category: 'laser', title: 'CO2 Laser Engraver', price: '₹ 1,85,000', img: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop', desc: 'High-precision laser cutter for acrylic, wood, and leather.' },
-            { id: 3, category: 'plasma', title: 'Plasma Cutting Profile', price: '₹ 3,20,000', img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop', desc: 'Advanced plasma cutting table for metal fabrication.' },
-            { id: 4, category: 'milling', title: '5-Axis Milling Center', price: '₹ 12,50,000', img: 'https://images.unsplash.com/photo-1565439390116-2fb9a781b0f5?q=80&w=800&auto=format&fit=crop', desc: 'State-of-the-art milling machine for complex aerospace parts.' },
-            { id: 5, category: 'lathe', title: 'CNC Turning Lathe', price: '₹ 6,40,000', img: 'https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?q=80&w=800&auto=format&fit=crop', desc: 'High-speed automated turning operations with exact tolerances.' },
-            { id: 6, category: 'spares', title: 'Spindle Motor 3kW', price: '₹ 28,000', img: 'https://images.unsplash.com/photo-1517420704952-d9f39740e38f?q=80&w=800&auto=format&fit=crop', desc: 'Air-cooled high-speed spindle motor replacement.' },
-            { id: 7, category: 'routing', title: 'Desktop Mini Router', price: '₹ 65,000', img: 'https://images.unsplash.com/photo-1580983546051-7871b9f67a21?q=80&w=800&auto=format&fit=crop', desc: 'Compact CNC router ideal for hobbyists and small prototyping.' },
-            { id: 8, category: 'laser', title: 'Fiber Laser Marker', price: '₹ 2,10,000', img: 'https://images.unsplash.com/photo-1590487988256-9ed24133863e?q=80&w=800&auto=format&fit=crop', desc: 'Fast, permanent marking on metals and hard plastics.' },
-            { id: 9, category: 'spares', title: 'Stepper Drive Kit', price: '₹ 12,500', img: 'https://images.unsplash.com/photo-1563452675059-efa1e2e7a787?q=80&w=800&auto=format&fit=crop', desc: 'Complete NEMA 34 stepper motor and driver kit.' }
+            { id: 1, category: 'routing', title: 'Industrial CNC Router', price: '₹ 4,50,000', img: 'images/cnc/cnc1.png', desc: 'Heavy-duty 3-axis CNC router for woodworking and sign making.' },
+            { id: 2, category: 'laser', title: 'CO2 Laser Engraver', price: '₹ 1,85,000', img: 'images/cnc/cnc2.png', desc: 'High-precision laser cutter for acrylic, wood, and leather.' },
+            { id: 3, category: 'plasma', title: 'Plasma Cutting Profile', price: '₹ 3,20,000', img: 'images/cnc/cnc3.png', desc: 'Advanced plasma cutting table for metal fabrication.' },
+            { id: 4, category: 'milling', title: '5-Axis Milling Center', price: '₹ 12,50,000', img: 'images/cnc/cnc4.png', desc: 'State-of-the-art milling machine for complex aerospace parts.' },
+            { id: 5, category: 'lathe', title: 'CNC Turning Lathe', price: '₹ 6,40,000', img: 'images/cnc/cnc5.png', desc: 'High-speed automated turning operations with exact tolerances.' },
+            { id: 6, category: 'spares', title: 'Spindle Motor 3kW', price: '₹ 28,000', img: 'images/cnc/cnc6.jpeg', desc: 'Air-cooled high-speed spindle motor replacement.' },
+            { id: 7, category: 'routing', title: 'Desktop Mini Router', price: '₹ 65,000', img: 'images/cnc/cnc7.jpeg', desc: 'Compact CNC router ideal for hobbyists and small prototyping.' },
+            { id: 8, category: 'laser', title: 'Fiber Laser Marker', price: '₹ 2,10,000', img: 'images/cnc/cnc8.jpeg', desc: 'Fast, permanent marking on metals and hard plastics.' },
+            { id: 9, category: 'spares', title: 'Stepper Drive Kit', price: '₹ 12,500', img: 'images/cnc/cnc9.jpeg', desc: 'Complete NEMA 34 stepper motor and driver kit.' }
         ];
 
         let currentCategory = 'all';
