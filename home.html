@@ -199,26 +199,27 @@
             <a href="cnc.html"
                 class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CNC</a>
         </div>
-    
+
         <!-- Mobile Menu Button -->
         <button id="mobile-menu-btn" class="md:hidden relative z-50 p-2 text-[#3d2b1f]" aria-label="Toggle Menu">
             <i class="ph ph-list text-2xl"></i>
         </button>
     </nav>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
-            <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
-                <a href="index.html" class="hover:text-[#bfa38a] transition text-center">HOME</a>
-                <a href="home.html" class="hover:text-[#bfa38a] transition text-center">LIVING</a>
-                <a href="office.html" class="hover:text-[#bfa38a] transition text-center">OFFICE</a>
-                <a href="school.html" class="hover:text-[#bfa38a] transition text-center">INSTITUTIONAL</a>
-                <a href="cafe.html" class="hover:text-[#bfa38a] transition text-center">CAFE</a>
-                <a href="cnc.html" class="hover:text-[#bfa38a] transition text-center">CNC</a>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
+            <a href="index.html" class="hover:text-[#bfa38a] transition text-center">HOME</a>
+            <a href="home.html" class="hover:text-[#bfa38a] transition text-center">LIVING</a>
+            <a href="office.html" class="hover:text-[#bfa38a] transition text-center">OFFICE</a>
+            <a href="school.html" class="hover:text-[#bfa38a] transition text-center">INSTITUTIONAL</a>
+            <a href="cafe.html" class="hover:text-[#bfa38a] transition text-center">CAFE</a>
+            <a href="cnc.html" class="hover:text-[#bfa38a] transition text-center">CNC</a>
 
-            </div>
         </div>
-    
+    </div>
+
 
     <!-- Header -->
     <header>
@@ -259,7 +260,7 @@
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
                     data-filter="ws">Ws</button>
-                </div>
+            </div>
         </div>
     </div>
 
@@ -278,7 +279,8 @@
                         class="w-12 h-12 rounded-full border border-[#2c1e14]/20 flex items-center justify-center hover:bg-[#2c1e14] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none">
                         <i class="ph ph-caret-left"></i>
                     </button>
-                    <div id="page-numbers" class="flex gap-2 max-w-[calc(100vw-140px)] md:max-w-full overflow-x-auto no-scrollbar scroll-smooth py-1">
+                    <div id="page-numbers"
+                        class="flex gap-2 max-w-[calc(100vw-140px)] md:max-w-full overflow-x-auto no-scrollbar scroll-smooth py-1">
                         <!-- Page buttons will be injected here -->
                     </div>
                     <button id="next-btn"
@@ -347,6 +349,20 @@
                 loader.style.opacity = '0';
                 setTimeout(() => loader.style.display = 'none', 800);
             }, 1000);
+        });
+
+        // BFCache Restore Logic (Fixes blank screen on swipe back)
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) {
+                // Ensure body opacity is reset if it was faded out
+                document.body.style.opacity = '1';
+                // Ensure loader is hidden
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.style.display = 'none';
+                    loader.style.opacity = '0';
+                }
+            }
         });
 
         // Scroll Animation Logic
@@ -625,7 +641,7 @@
         // Initialize
         window.addEventListener('load', renderProducts);
     </script>
-<script>
+    <script>
         // Mobile Menu Logic
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -642,7 +658,7 @@
                     mobileBtn.innerHTML = '<i class="ph ph-x text-2xl"></i>';
                 }
             });
-            
+
             // Close menu when clicking a link
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -652,7 +668,7 @@
                 });
             });
         }
-        </script>
+    </script>
 </body>
 
 </html>
