@@ -140,7 +140,7 @@
             justify-content: center;
             transition: opacity 0.8s ease;
         }
-    
+
         /* Hide scrollbar */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
@@ -150,7 +150,6 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
-        
     </style>
 </head>
 
@@ -178,26 +177,27 @@
                 class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CAFE</a>
             <a href="cnc.html" class="text-[#6d3d14] transition py-2 border-b-2 border-[#6d3d14]">CNC</a>
         </div>
-    
+
         <!-- Mobile Menu Button -->
         <button id="mobile-menu-btn" class="md:hidden relative z-50 p-2 text-[#3d2b1f]" aria-label="Toggle Menu">
             <i class="ph ph-list text-2xl"></i>
         </button>
     </nav>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
-            <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
-                <a href="index.html" class="hover:text-[#bfa38a] transition text-center">HOME</a>
-                <a href="home.html" class="hover:text-[#bfa38a] transition text-center">LIVING</a>
-                <a href="office.html" class="hover:text-[#bfa38a] transition text-center">OFFICE</a>
-                <a href="school.html" class="hover:text-[#bfa38a] transition text-center">INSTITUTIONAL</a>
-                <a href="cafe.html" class="hover:text-[#bfa38a] transition text-center">CAFE</a>
-                <a href="cnc.html" class="hover:text-[#bfa38a] transition text-center">CNC</a>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
+            <a href="index.html" class="hover:text-[#bfa38a] transition text-center">HOME</a>
+            <a href="home.html" class="hover:text-[#bfa38a] transition text-center">LIVING</a>
+            <a href="office.html" class="hover:text-[#bfa38a] transition text-center">OFFICE</a>
+            <a href="school.html" class="hover:text-[#bfa38a] transition text-center">INSTITUTIONAL</a>
+            <a href="cafe.html" class="hover:text-[#bfa38a] transition text-center">CAFE</a>
+            <a href="cnc.html" class="hover:text-[#bfa38a] transition text-center">CNC</a>
 
-            </div>
         </div>
-    
+    </div>
+
 
     <!-- Header Hero -->
     <header class="pt-24 mt-0 border-b border-black/10">
@@ -214,27 +214,30 @@
     <section class="py-20 px-6 bg-[#fcfaf7]">
         <div class="max-w-[1400px] mx-auto">
             <!-- Category Filter -->
-            <div id="filter-bar" class="flex flex-wrap justify-center gap-4 mb-16 reveal">
-                <button
-                    class="category-btn active bg-[#2c1e14] text-white text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14] transition-all duration-300"
-                    data-filter="all">All</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="panels">Panels</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="partitions">Partitions</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="facades">Facades</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="gates">Gates & Grills</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="custom">Custom Art</button>
-            </div>
+            <div class="overflow-x-auto no-scrollbar w-full mb-16 reveal">
+                <div id="filter-bar"
+                    class="flex flex-nowrap items-center gap-4 md:gap-8 min-w-max pb-4 px-2 md:justify-center">
+                    <button
+                        class="category-btn active bg-[#2c1e14] text-white text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14] transition-all duration-300"
+                        data-filter="all">All</button>
+                    <button
+                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                        data-filter="panels">Panels</button>
+                    <button
+                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                        data-filter="partitions">Partitions</button>
+                    <button
+                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                        data-filter="facades">Facades</button>
+                    <button
+                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                        data-filter="gates">Gates & Grills</button>
+                    <button
+                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                        data-filter="custom">Custom Art</button>
+                </div>
 
+            </div>
             <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 min-h-[600px]">
                 <!-- JavaScript will populate this -->
             </div>
@@ -246,7 +249,8 @@
                         class="w-12 h-12 rounded-full border border-[#2c1e14]/20 flex items-center justify-center hover:bg-[#2c1e14] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none">
                         <i class="ph ph-caret-left"></i>
                     </button>
-                    <div id="page-numbers" class="flex gap-2 max-w-[calc(100vw-140px)] md:max-w-full overflow-x-auto no-scrollbar scroll-smooth py-1">
+                    <div id="page-numbers"
+                        class="flex gap-2 max-w-[calc(100vw-140px)] md:max-w-full overflow-x-auto no-scrollbar scroll-smooth py-1">
                         <!-- Page buttons will be injected here -->
                     </div>
                     <button id="next-btn"
@@ -490,7 +494,7 @@
         // Initial render
         renderProducts();
     </script>
-<script>
+    <script>
         // Mobile Menu Logic
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -507,7 +511,7 @@
                     mobileBtn.innerHTML = '<i class="ph ph-x text-2xl"></i>';
                 }
             });
-            
+
             // Close menu when clicking a link
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
@@ -517,7 +521,7 @@
                 });
             });
         }
-        </script>
+    </script>
 </body>
 
 </html>
