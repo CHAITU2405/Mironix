@@ -143,6 +143,17 @@
             justify-content: center;
             transition: opacity 0.8s ease;
         }
+    
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
     </style>
 </head>
 
@@ -153,7 +164,7 @@
     </div>
 
     <nav class="fixed top-0 w-full z-50 py-2 px-8 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 relative z-50">
             <div class="text-2xl font-bold tracking-tighter uppercase text-[#3d2b1f] serif">Mironix</div>
         </a>
 
@@ -170,7 +181,26 @@
             <a href="cnc.html"
                 class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CNC</a>
         </div>
+    
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-2 text-[#3d2b1f]" aria-label="Toggle Menu">
+            <i class="ph ph-list text-2xl"></i>
+        </button>
     </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+            <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
+                <a href="index.html" class="hover:text-[#bfa38a] transition text-center">HOME</a>
+                <a href="home.html" class="hover:text-[#bfa38a] transition text-center">LIVING</a>
+                <a href="office.html" class="hover:text-[#bfa38a] transition text-center">OFFICE</a>
+                <a href="school.html" class="hover:text-[#bfa38a] transition text-center">INSTITUTIONAL</a>
+                <a href="cafe.html" class="hover:text-[#bfa38a] transition text-center">CAFE</a>
+                <a href="cnc.html" class="hover:text-[#bfa38a] transition text-center">CNC</a>
+
+            </div>
+        </div>
+    
 
     <!-- Header Hero -->
     <header>
@@ -189,36 +219,27 @@
             <!-- Category Filter -->
             <div id="filter-bar" class="flex flex-wrap justify-center gap-4 mb-16 reveal">
                 <button
-                    class="category-btn active bg-[#2c1e14] text-white text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14] transition-all duration-300"
+                    class="category-btn active text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14] bg-[#2c1e14] text-white transition-all duration-300"
                     data-filter="all">All</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="executive">Executive</button>
+                    data-filter="asthetic-decor">Asthetic Decor</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="ergonomics">Ergonomics</button>
+                    data-filter="conference-desks">Conference Desks</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="collaboration">Collaboration</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="focus-zones">Focus Zones</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="storage">Storage</button>
+                    data-filter="executive-desks">Executive Desks</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
                     data-filter="reception">Reception</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="breakout">Breakout</button>
+                    data-filter="waiting-halls">Waiting Halls</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="accessories">Accessories</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="organization">Organization</button>
-            </div>
+                    data-filter="work-desks">Work Desks</button>
+                </div>
 
             <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 min-h-[600px]">
                 <!-- JavaScript will populate this -->
@@ -231,7 +252,7 @@
                         class="w-12 h-12 rounded-full border border-[#2c1e14]/20 flex items-center justify-center hover:bg-[#2c1e14] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none">
                         <i class="ph ph-caret-left"></i>
                     </button>
-                    <div id="page-numbers" class="flex gap-2">
+                    <div id="page-numbers" class="flex gap-2 max-w-[calc(100vw-140px)] md:max-w-full overflow-x-auto no-scrollbar scroll-smooth py-1">
                         <!-- Page buttons will be injected here -->
                     </div>
                     <button id="next-btn"
@@ -349,28 +370,43 @@
         const itemsPerPage = 6;
 
         const products = [
-            { id: 1, category: 'executive', title: "Chairman's Mahogany Desk", price: '₹ 35,999', img: 'images/office/office1.png', desc: 'Masterpiece of joinery with rich mahogany finish and leather pad.' },
-            { id: 2, category: 'ergonomics', title: 'ErgoPro Spine Support', price: '₹ 18,500', img: 'images/office/office2.png', desc: 'Adaptive lumbar support and 4D armrests for 12+ hour workdays.' },
-            { id: 3, category: 'collaboration', title: 'Visionary Conf. Table', price: '₹ 1,20,000', img: 'images/office/office3.png', desc: '12-seater centerpiece with sleek glass top and robust oak legs.' },
-            { id: 4, category: 'focus-zones', title: 'Compact Workstation', price: '₹ 12,999', img: 'images/office/office4.png', desc: 'Efficient footprint with built-in storage and privacy screen.' },
-            { id: 5, category: 'storage', title: 'Secure File Cabinet', price: '₹ 14,500', img: 'images/office/office5.png', desc: 'Heavy-duty steel construction with centralized locking system.' },
-            { id: 6, category: 'reception', title: 'Welcome Desk Series', price: '₹ 42,000', img: 'images/office/office6.png', desc: 'Curved modular design to create a striking first impression.' },
-            { id: 7, category: 'breakout', title: 'Modular Lounge Seating', price: '₹ 25,500', img: 'images/office/office7.png', desc: 'Configurable soft seating for informal meetings and relaxation.' },
-            { id: 8, category: 'accessories', title: 'Mobile Writing Board', price: '₹ 8,990', img: 'images/office/office8.png', desc: 'Double-sided magnetic surface with easy-glide castor wheels.' },
-            { id: 9, category: 'organization', title: 'Mobile Pedestal', price: '₹ 4,500', img: 'images/office/office9.png', desc: '3-drawer compact storage that fits perfectly under standard desks.' }
+            { id: 1, category: 'asthetic-decor', title: 'Asthetic Decor 1', price: '₹ 10500', img: 'images/office/asthetic decor/as1.jpeg', desc: 'Premium asthetic decor 1 for your space.' },
+            { id: 2, category: 'asthetic-decor', title: 'Asthetic Decor 2', price: '₹ 11000', img: 'images/office/asthetic decor/as2.png', desc: 'Premium asthetic decor 2 for your space.' },
+            { id: 3, category: 'asthetic-decor', title: 'Asthetic Decor 3', price: '₹ 11500', img: 'images/office/asthetic decor/as3.png', desc: 'Premium asthetic decor 3 for your space.' },
+            { id: 4, category: 'asthetic-decor', title: 'Asthetic Decor 4', price: '₹ 12000', img: 'images/office/asthetic decor/as4.jpeg', desc: 'Premium asthetic decor 4 for your space.' },
+            { id: 5, category: 'conference-desks', title: 'Conference Desks 5', price: '₹ 12500', img: 'images/office/conference desks/cd1.jpeg', desc: 'Premium conference desks 5 for your space.' },
+            { id: 6, category: 'conference-desks', title: 'Conference Desks 6', price: '₹ 13000', img: 'images/office/conference desks/cd2.png', desc: 'Premium conference desks 6 for your space.' },
+            { id: 7, category: 'conference-desks', title: 'Conference Desks 7', price: '₹ 13500', img: 'images/office/conference desks/cd3.png', desc: 'Premium conference desks 7 for your space.' },
+            { id: 8, category: 'conference-desks', title: 'Conference Desks 8', price: '₹ 14000', img: 'images/office/conference desks/cd4.jpeg', desc: 'Premium conference desks 8 for your space.' },
+            { id: 9, category: 'conference-desks', title: 'Conference Desks 9', price: '₹ 14500', img: 'images/office/conference desks/cd5.jpeg', desc: 'Premium conference desks 9 for your space.' },
+            { id: 10, category: 'conference-desks', title: 'Conference Desks 10', price: '₹ 15000', img: 'images/office/conference desks/cd6.jpeg', desc: 'Premium conference desks 10 for your space.' },
+            { id: 11, category: 'executive-desks', title: 'Executive Desks 11', price: '₹ 15500', img: 'images/office/executive desks/ed1.png', desc: 'Premium executive desks 11 for your space.' },
+            { id: 12, category: 'executive-desks', title: 'Executive Desks 12', price: '₹ 16000', img: 'images/office/executive desks/ed2.jpeg', desc: 'Premium executive desks 12 for your space.' },
+            { id: 13, category: 'executive-desks', title: 'Executive Desks 13', price: '₹ 16500', img: 'images/office/executive desks/ed3.jpeg', desc: 'Premium executive desks 13 for your space.' },
+            { id: 14, category: 'executive-desks', title: 'Executive Desks 14', price: '₹ 17000', img: 'images/office/executive desks/ed4.jpeg', desc: 'Premium executive desks 14 for your space.' },
+            { id: 15, category: 'executive-desks', title: 'Executive Desks 15', price: '₹ 17500', img: 'images/office/executive desks/ed5.jpeg', desc: 'Premium executive desks 15 for your space.' },
+            { id: 16, category: 'executive-desks', title: 'Executive Desks 16', price: '₹ 18000', img: 'images/office/executive desks/ed6.jpeg', desc: 'Premium executive desks 16 for your space.' },
+            { id: 17, category: 'executive-desks', title: 'Executive Desks 17', price: '₹ 18500', img: 'images/office/executive desks/ed7.jpeg', desc: 'Premium executive desks 17 for your space.' },
+            { id: 18, category: 'executive-desks', title: 'Executive Desks 18', price: '₹ 19000', img: 'images/office/executive desks/ed8.jpeg', desc: 'Premium executive desks 18 for your space.' },
+            { id: 19, category: 'reception', title: 'Reception 19', price: '₹ 19500', img: 'images/office/reception/reception1.png', desc: 'Premium reception 19 for your space.' },
+            { id: 20, category: 'waiting-halls', title: 'Waiting Halls 20', price: '₹ 20000', img: 'images/office/waiting halls/wh1.jpeg', desc: 'Premium waiting halls 20 for your space.' },
+            { id: 21, category: 'waiting-halls', title: 'Waiting Halls 21', price: '₹ 20500', img: 'images/office/waiting halls/wh2.png', desc: 'Premium waiting halls 21 for your space.' },
+            { id: 22, category: 'waiting-halls', title: 'Waiting Halls 22', price: '₹ 21000', img: 'images/office/waiting halls/wh3.jpeg', desc: 'Premium waiting halls 22 for your space.' },
+            { id: 23, category: 'work-desks', title: 'Work Desks 23', price: '₹ 21500', img: 'images/office/work desks/wd1.png', desc: 'Premium work desks 23 for your space.' },
+            { id: 24, category: 'work-desks', title: 'Work Desks 24', price: '₹ 22000', img: 'images/office/work desks/wd2.jpeg', desc: 'Premium work desks 24 for your space.' },
+            { id: 25, category: 'work-desks', title: 'Work Desks 25', price: '₹ 22500', img: 'images/office/work desks/wd3.jpeg', desc: 'Premium work desks 25 for your space.' },
+            { id: 26, category: 'work-desks', title: 'Work Desks 26', price: '₹ 23000', img: 'images/office/work desks/wd4.jpeg', desc: 'Premium work desks 26 for your space.' },
+            { id: 27, category: 'work-desks', title: 'Work Desks 27', price: '₹ 23500', img: 'images/office/work desks/wd5.jpeg', desc: 'Premium work desks 27 for your space.' },
         ];
 
         function getIcon(category) {
             const icons = {
-                'executive': 'desk',
-                'ergonomics': 'chair',
-                'collaboration': 'users-three',
-                'focus-zones': 'laptop',
-                'storage': 'files',
-                'reception': 'handshake',
-                'breakout': 'armchair',
-                'accessories': 'presentation-chart',
-                'organization': 'archive-box'
+                'asthetic-decor': 'image',
+                'conference-desks': 'users',
+                'executive-desks': 'briefcase',
+                'reception': 'door',
+                'waiting-halls': 'armchair',
+                'work-desks': 'desktop',
             };
             return icons[category] || 'briefcase';
         }
@@ -441,7 +477,7 @@
             pageNumbersContainer.innerHTML = '';
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
-                btn.className = `w-12 h-12 rounded-full border text-xs font-bold transition-all duration-300 ${i === currentPage
+                btn.className = `shrink-0 w-12 h-12 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${i === currentPage
                     ? 'bg-[#2c1e14] text-white border-[#2c1e14]'
                     : 'border-[#2c1e14]/20 text-[#2c1e14] hover:border-[#2c1e14]'
                     }`;
@@ -488,6 +524,34 @@
             }
         });
     </script>
+<script>
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isMenuOpen = mobileMenu.classList.contains('opacity-100');
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                    mobileBtn.innerHTML = '<i class="ph ph-x text-2xl"></i>';
+                }
+            });
+            
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                });
+            });
+        }
+        </script>
 </body>
 
 </html>

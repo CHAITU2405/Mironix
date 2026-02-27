@@ -124,7 +124,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.4);
             /* Frosted glass border */
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.6);
-            transition: all 0.3s ease;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 1.2s ease, opacity 1.2s ease;
         }
 
         /* --- HEADER STYLING (IMAGE ADDED) --- */
@@ -243,8 +243,8 @@
         <h2 class="text-white tracking-[0.8em] text-xs font-bold uppercase animate-pulse">Mironix</h2>
     </div>
 
-    <nav class="fixed top-0 w-full z-50 py-2 px-8 md:px-12 flex justify-between items-center">
-        <div class="flex items-center gap-3">
+    <nav id="main-nav" class="fixed top-0 w-full z-50 py-2 px-8 md:px-12 flex justify-between items-center">
+        <div class="flex items-center gap-3 relative z-50">
             <div class="text-2xl font-bold tracking-tighter uppercase text-[#3d2b1f] serif">Mironix</div>
         </div>
 
@@ -259,7 +259,25 @@
                 class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CONTACT</a>
         </div>
 
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-2 text-[#3d2b1f]" aria-label="Toggle Menu">
+            <i class="ph ph-list text-2xl"></i>
+        </button>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+        <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
+            <a href="#about" class="hover:text-[#bfa38a] transition text-center">SAGA</a>
+            <a href="#featured" class="hover:text-[#bfa38a] transition text-center">SHOWCASE</a>
+            <a href="#categories" class="hover:text-[#bfa38a] transition text-center">COLLECTIONS</a>
+            <a href="#contact" class="hover:text-[#bfa38a] transition text-center">CONTACT</a>
+
+        </div>
+    </div>
+
 
     <!-- Swiper Hero Section -->
     <div class="swiper mySwiper">
@@ -433,7 +451,7 @@
                 <!-- Slide 1 -->
                 <div class="swiper-slide w-[300px] md:w-[400px] group cursor-pointer">
                     <div class="relative overflow-hidden rounded-xl h-[500px] mb-6">
-                        <img src="images/features/executive desk.png"
+                        <img src="images/index/features/feature1.jpeg"
                             class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-1"
                             alt="Executive Desk">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
@@ -444,13 +462,13 @@
                                 Details</span>
                         </div>
                     </div>
-                    <h3 class="text-2xl serif mb-2">Executive Desk</h3>
-                    <p class="text-white/50 text-sm tracking-wider uppercase">Office Series</p>
+                    <h3 class="text-2xl serif mb-2">Mini Table</h3>
+                    <p class="text-white/50 text-sm tracking-wider uppercase">Home Series</p>
                 </div>
                 <!-- Slide 2 -->
                 <div class="swiper-slide w-[300px] md:w-[400px] group cursor-pointer">
                     <div class="relative overflow-hidden rounded-xl h-[500px] mb-6">
-                        <img src="images/features/metal chair.png"
+                        <img src="images/index/features/feature2.png"
                             class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-1"
                             alt="Metal Chair">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
@@ -461,13 +479,13 @@
                                 Details</span>
                         </div>
                     </div>
-                    <h3 class="text-2xl serif mb-2">Metal Chair</h3>
-                    <p class="text-white/50 text-sm tracking-wider uppercase">Lounge Series</p>
+                    <h3 class="text-2xl serif mb-2">Table & Chair</h3>
+                    <p class="text-white/50 text-sm tracking-wider uppercase">Cafe Series</p>
                 </div>
                 <!-- Slide 3 -->
                 <div class="swiper-slide w-[300px] md:w-[400px] group cursor-pointer">
                     <div class="relative overflow-hidden rounded-xl h-[500px] mb-6">
-                        <img src="images/features/metal table.png"
+                        <img src="images/index/features/feature3.jpeg"
                             class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-1"
                             alt="Metal Table">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
@@ -484,7 +502,7 @@
                 <!-- Slide 4 -->
                 <div class="swiper-slide w-[300px] md:w-[400px] group cursor-pointer">
                     <div class="relative overflow-hidden rounded-xl h-[500px] mb-6">
-                        <img src="images/features/sofaset.png"
+                        <img src="images/index/features/feature4.jpeg"
                             class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-1"
                             alt="Sofaset">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
@@ -495,13 +513,13 @@
                                 Details</span>
                         </div>
                     </div>
-                    <h3 class="text-2xl serif mb-2">Modern Sofaset</h3>
+                    <h3 class="text-2xl serif mb-2">Chair</h3>
                     <p class="text-white/50 text-sm tracking-wider uppercase">Living Room</p>
                 </div>
                 <!-- Slide 5 -->
                 <div class="swiper-slide w-[300px] md:w-[400px] group cursor-pointer">
                     <div class="relative overflow-hidden rounded-xl h-[500px] mb-6">
-                        <img src="images/features/storage rack.png"
+                        <img src="images/index/features/feature5.png"
                             class="w-full h-full object-cover transition duration-700 group-hover:scale-110 group-hover:rotate-1"
                             alt="Storage Rack">
                         <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
@@ -512,7 +530,7 @@
                                 Details</span>
                         </div>
                     </div>
-                    <h3 class="text-2xl serif mb-2">Storage Rack</h3>
+                    <h3 class="text-2xl serif mb-2">Wall Seperator</h3>
                     <p class="text-white/50 text-sm tracking-wider uppercase">Storage Systems</p>
                 </div>
             </div>
@@ -935,6 +953,59 @@
             document.body.style.opacity = '0';
             setTimeout(() => window.location.href = url, 500);
         }
+    </script>
+    <script>
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isMenuOpen = mobileMenu.classList.contains('opacity-100');
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                    mobileBtn.innerHTML = '<i class="ph ph-x text-2xl"></i>';
+                }
+            });
+
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                });
+            });
+        }
+
+        // Navbar Scroll Effect
+        const nav = document.getElementById('main-nav');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.style.transform = 'translateY(0)';
+                nav.style.background = 'rgba(253, 251, 247, 0.9)'; // More opaque when scrolled
+            } else {
+                nav.style.transform = 'translateY(0)'; // Keep it visible at top too? Or maybe they mean appear when scrolling down?
+                nav.style.background = 'rgba(253, 251, 247, 0.7)';
+            }
+
+            // Or hide on scroll down, show on scroll up (common pattern)
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                // Scrolling down
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollY = window.scrollY;
+        });
+
     </script>
 </body>
 

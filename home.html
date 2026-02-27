@@ -182,7 +182,7 @@
     </div>
 
     <nav class="fixed top-0 w-full z-50 py-2 px-8 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 relative z-50">
             <div class="text-2xl font-bold tracking-tighter uppercase text-[#3d2b1f] serif">Mironix</div>
         </a>
 
@@ -199,7 +199,26 @@
             <a href="cnc.html"
                 class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CNC</a>
         </div>
+    
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-2 text-[#3d2b1f]" aria-label="Toggle Menu">
+            <i class="ph ph-list text-2xl"></i>
+        </button>
     </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+            <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
+                <a href="index.html" class="hover:text-[#bfa38a] transition text-center">HOME</a>
+                <a href="home.html" class="hover:text-[#bfa38a] transition text-center">LIVING</a>
+                <a href="office.html" class="hover:text-[#bfa38a] transition text-center">OFFICE</a>
+                <a href="school.html" class="hover:text-[#bfa38a] transition text-center">INSTITUTIONAL</a>
+                <a href="cafe.html" class="hover:text-[#bfa38a] transition text-center">CAFE</a>
+                <a href="cnc.html" class="hover:text-[#bfa38a] transition text-center">CNC</a>
+
+            </div>
+        </div>
+    
 
     <!-- Header -->
     <header>
@@ -221,23 +240,26 @@
                     data-filter="all">All</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="sofaset">Sofa sets</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="tables">Tables</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="wall-separator">Wall Separator</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="storage-racks">Storage Racks</button>
+                    data-filter="parking">Parking</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
                     data-filter="railing">Railing</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="parking">Parking</button>
-            </div>
+                    data-filter="sofaset">Sofaset</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="sr">Sr</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="tables">Tables</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="walldecor">Walldecor</button>
+                <button
+                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
+                    data-filter="ws">Ws</button>
+                </div>
         </div>
     </div>
 
@@ -256,7 +278,7 @@
                         class="w-12 h-12 rounded-full border border-[#2c1e14]/20 flex items-center justify-center hover:bg-[#2c1e14] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none">
                         <i class="ph ph-caret-left"></i>
                     </button>
-                    <div id="page-numbers" class="flex gap-2">
+                    <div id="page-numbers" class="flex gap-2 max-w-[calc(100vw-140px)] md:max-w-full overflow-x-auto no-scrollbar scroll-smooth py-1">
                         <!-- Page buttons will be injected here -->
                     </div>
                     <button id="next-btn"
@@ -373,77 +395,102 @@
         const itemsPerPage = 6;
 
         const products = [
-            // SOFA SETS (12 items)
-            { id: 1, category: 'sofaset', title: 'Royal Velvet Sofa', price: '₹ 45,999', img: 'images/home/sofaset/sofaset1.png', desc: 'Plush velvet 3-seater for a majestic living room experience.' },
-            { id: 2, category: 'sofaset', title: 'Modern L-Shape', price: '₹ 58,000', img: 'images/home/sofaset/sofaset2.png', desc: 'Functional L-shaped sofa with premium grey fabric.' },
-            { id: 3, category: 'sofaset', title: 'Cosy Corner Seat', price: '₹ 32,500', img: 'images/home/sofaset/sofaset3.png', desc: 'Compact corner sofa perfect for smaller modern apartments.' },
-            { id: 4, category: 'sofaset', title: 'Chesterfield Classic', price: '₹ 72,000', img: 'images/home/sofaset/sofaset4.png', desc: 'Timeless leather-bound Chesterfield design with deep buttoning.' },
-            { id: 5, category: 'sofaset', title: 'Minimalist Daybed', price: '₹ 28,900', img: 'images/home/sofaset/sofaset5.png', desc: 'Sleek daybed that doubles as a stylish lounge piece.' },
-            { id: 6, category: 'sofaset', title: 'Bouclé Dream', price: '₹ 42,000', img: 'images/home/sofaset/sofaset6.png', desc: 'Trendy white bouclé texture with walnut rounded legs.' },
-            { id: 7, category: 'sofaset', title: 'Electric Recliner', price: '₹ 85,000', img: 'images/home/sofaset/sofaset7.png', desc: 'Luxury electric recliner with integrated USB charging.' },
-            { id: 8, category: 'sofaset', title: 'Urban Sectional', price: '₹ 64,500', img: 'images/home/sofaset/sofaset8.png', desc: 'Modular sectional sofa that adapts to your room layout.' },
-            { id: 9, category: 'sofaset', title: 'Mid-Century Modern', price: '₹ 38,000', img: 'images/home/sofaset/sofaset9.png', desc: 'Iconic 1950s style with tapered legs and mustard upholstery.' },
-            { id: 10, category: 'sofaset', title: 'Cloud Lounge', price: '₹ 92,000', img: 'images/home/sofaset/sofaset10.png', desc: 'Deep-seat lounging sofa for the ultimate relaxation.' },
-            { id: 11, category: 'sofaset', title: 'Rattan Veranda', price: '₹ 22,000', img: 'images/home/sofaset/sofaset11.webp', desc: 'Weather-resistant rattan sofa for elegant outdoor spaces.' },
-            { id: 12, category: 'sofaset', title: 'Velvet Loveseat', price: '₹ 25,500', img: 'images/home/sofaset/sofaset12.webp', desc: 'Charming 2-seater loveseat in emerald green.' },
-
-            // TABLES (12 items)
-            { id: 13, category: 'tables', title: 'Marble Feast', price: '₹ 55,000', img: 'images/home/tables/table1.png', desc: 'Luxury marble top dining table for 6 people.' },
-            { id: 14, category: 'tables', title: 'Glass Office Desk', price: '₹ 15,000', img: 'images/home/tables/table2.png', desc: 'Minimalist tempered glass desk for home offices.' },
-            { id: 15, category: 'tables', title: 'Rustic Oak Coffee', price: '₹ 8,900', img: 'images/home/tables/table3.png', desc: 'Solid oak coffee table with a natural live-edge finish.' },
-            { id: 16, category: 'tables', title: 'Gold Glam Side', price: '₹ 4,500', img: 'images/home/tables/table4.png', desc: 'Art deco inspired side table with gold-brushed metal legs.' },
-            { id: 17, category: 'tables', title: 'Nesting Trio', price: '₹ 9,999', img: 'images/home/tables/table5.png', desc: 'Set of three walnut nesting tables for space-saving utility.' },
-            { id: 18, category: 'tables', title: 'Industrial Bar', price: '₹ 12,000', img: 'images/home/tables/table6.png', desc: 'High-top breakfast bar with reclaimed wood top.' },
-            { id: 19, category: 'tables', title: 'Folding Bistro', price: '₹ 3,800', img: 'images/home/tables/table7.png', desc: 'Weatherproof metal folding table for balconies.' },
-            { id: 20, category: 'tables', title: 'Scandi Circular', price: '₹ 18,500', img: 'images/home/tables/table8.png', desc: 'White and wood circular dining table for compact spaces.' },
-            { id: 21, category: 'tables', title: 'Nightstand Duo', price: '₹ 6,200', img: 'images/home/tables/table9.png', desc: 'Pair of minimalist nightstands with built-in drawers.' },
-            { id: 22, category: 'tables', title: 'Console Entryway', price: '₹ 11,500', img: 'images/home/tables/table10.png', desc: 'Slim console table for hallway decor and organization.' },
-            { id: 23, category: 'tables', title: 'Workstation Plus', price: '₹ 22,000', img: 'images/home/tables/table11.png', desc: 'Ergonomic study desk with integrated shelving.' },
-            { id: 24, category: 'tables', title: 'Outdoor Picnic', price: '₹ 14,000', img: 'images/home/tables/table12.png', desc: 'Solid wood picnic table with attached benches.' },
-
-            // WALL SEPARATOR (9 items)
-            { id: 25, category: 'wall-separator', title: 'Lattice Wood', price: '₹ 12,500', img: 'images/home/ws/ws1.png', desc: 'Hand-crafted wooden lattice for elegant partitioning.' },
-            { id: 26, category: 'wall-separator', title: 'Frosted Glass', price: '₹ 28,000', img: 'images/home/ws/ws2.png', desc: 'Modern frosted glass panels with minimalist frames.' },
-            { id: 27, category: 'wall-separator', title: 'Geometric Metal', price: '₹ 15,900', img: 'images/home/ws/ws3.png', desc: 'Laser-cut metal screen with geometric art patterns.' },
-            { id: 28, category: 'wall-separator', title: 'Bookshelf Wall', price: '₹ 22,000', img: 'images/home/ws/ws4.png', desc: 'Dual-purpose divider that serves as a storage unit.' },
-            { id: 29, category: 'wall-separator', title: 'Bamboo Serene', price: '₹ 7,500', img: 'images/home/ws/ws5.png', desc: 'Natural bamboo poles for a tranquil Zen-inspired feel.' },
-            { id: 30, category: 'wall-separator', title: 'Fabric Screen', price: '₹ 5,200', img: 'images/home/ws/ws6.png', desc: 'Lightweight foldable screen in premium linen fabric.' },
-            { id: 31, category: 'wall-separator', title: 'Green Living Wall', price: '₹ 45,000', img: 'images/home/ws/ws7.png', desc: 'Self-watering vertical garden partition.' },
-            { id: 32, category: 'wall-separator', title: 'Art Deco Mirror', price: '₹ 32,000', img: 'images/home/ws/ws8.png', desc: 'Mirrored partition that expands visual space.' },
-            { id: 33, category: 'wall-separator', title: 'Slate Panel', price: '₹ 18,500', img: 'images/home/ws/ws9.png', desc: 'Textured stone-effect panels for industrial lofts.' },
-
-            // STORAGE RACKS (9 items)
-            { id: 34, category: 'storage-racks', title: 'Industrial Bookrack', price: '₹ 9,500', img: 'images/home/sr/sr1.png', desc: 'Steel and wood rack for book lovers and collectors.' },
-            { id: 35, category: 'storage-racks', title: 'Modular Cubes', price: '₹ 6,800', img: 'images/home/sr/sr2.png', desc: 'Versatile cube storage that grows with your needs.' },
-            { id: 36, category: 'storage-racks', title: 'Shoe Organizer', price: '₹ 4,200', img: 'images/home/sr/sr3.png', desc: 'Entryway rack for organized footwear storage.' },
-            { id: 37, category: 'storage-racks', title: 'Kitchen Trolley', price: '₹ 8,500', img: 'images/home/sr/sr4.png', desc: 'Mobile storage rack with wheels for kitchens.' },
-            { id: 38, category: 'storage-racks', title: 'Bathroom Tier', price: '₹ 3,500', img: 'images/home/sr/sr5.png', desc: 'Compact tiered rack for towels and toiletries.' },
-            { id: 39, category: 'storage-racks', title: 'Floating Wall Unit', price: '₹ 11,200', img: 'images/home/sr/sr6.png', desc: 'Minimalist wall-mounted unit for decor display.' },
-            { id: 40, category: 'storage-racks', title: 'Wardrobe System', price: '₹ 48,000', img: 'images/home/sr/sr7.png', desc: 'Complete open storage system for walkthrough closets.' },
-            { id: 41, category: 'storage-racks', title: 'Garage Heavy Duty', price: '₹ 15,000', img: 'images/home/sr/sr8.png', desc: 'Reinforced steel shelving for garages and workshops.' },
-            { id: 42, category: 'storage-racks', title: 'Vintage Trunk', price: '₹ 7,900', img: 'images/home/sr/sr9.png', desc: 'Classic wooden trunk with antique brass fittings.' },
-
-            // RAILING (9 items)
-            { id: 43, category: 'railing', title: 'Glass Balustrade', price: '₹ 1,200 / ft', img: 'images/home/railing/railing1.png', desc: 'Seamless glass panels with stainless steel handrails.' },
-            { id: 44, category: 'railing', title: 'Wrought Iron Classic', price: '₹ 850 / ft', img: 'images/home/railing/railing2.png', desc: 'Traditional hand-forged scrollwork for a classic look.' },
-            { id: 45, category: 'railing', title: 'Modern Vertical Slats', price: '₹ 950 / ft', img: 'images/home/railing/railing3.png', desc: 'Clean vertical lines in matte black aluminum.' },
-            { id: 46, category: 'railing', title: 'Wire Rope System', price: '₹ 1,100 / ft', img: 'images/home/railing/railing4.png', desc: 'Nautical-inspired steel wire tension railings.' },
-            { id: 47, category: 'railing', title: 'Spiral Handrail', price: '₹ 15,000', img: 'images/home/railing/railing5.png', desc: 'Curved wooden handrail custom-fit for spiral stairs.' },
-            { id: 48, category: 'railing', title: 'Laser-Cut Art', price: '₹ 1,800 / ft', img: 'images/home/railing/railing6.png', desc: 'Custom laser-cut patterns in decorative steel sheets.' },
-            { id: 49, category: 'railing', title: 'Traditional Teak', price: '₹ 1,500 / ft', img: 'images/home/railing/railing7.png', desc: 'Solid teak wood railing with hand-turned spindles.' },
-            { id: 50, category: 'railing', title: 'Industrial Pipe', price: '₹ 700 / ft', img: 'images/home/railing/railing8.png', desc: 'Rugged iron pipe railing for a modern loft aesthetic.' },
-            { id: 51, category: 'railing', title: 'Minimalist Rod', price: '₹ 800 / ft', img: 'images/home/railing/railing9.png', desc: 'Thin horizontal steel rods for an airy, open feel.' },
-
-            // PARKING (9 items)
-            { id: 52, category: 'parking', title: 'Smart Canopy', price: '₹ 42,000', img: 'images/home/parking/parking1.png', desc: 'Protective overhead structure with integrated lighting.' },
-            { id: 53, category: 'parking', title: 'Epoxy Floor Pro', price: '₹ 15,000', img: 'images/home/parking/parking2.png', desc: 'High-durability epoxy coating for a professional finish.' },
-            { id: 54, category: 'parking', title: 'Vertical Stacker', price: '₹ 2,50,000', img: 'images/home/parking/parking3.png', desc: 'Double your parking capacity with a hydraulic lift.' },
-            { id: 55, category: 'parking', title: 'EV Wallbox', price: '₹ 35,000', img: 'images/home/parking/parking4.png', desc: 'Level-2 charging station for electric vehicle owners.' },
-            { id: 56, category: 'parking', title: 'Bollard Security', price: '₹ 8,900', img: 'images/home/parking/parking5.png', desc: 'Retractable heavy-duty bollards for access control.' },
-            { id: 57, category: 'parking', title: 'Parking Sensor Kit', price: '₹ 4,500', img: 'images/home/parking/parking6.png', desc: 'Ultrasonic sensors with wall-mounted indicators.' },
-            { id: 58, category: 'parking', title: 'Carport Modern', price: '₹ 85,000', img: 'images/home/parking/parking7.png', desc: 'Freestanding modern carport structure with glass roof.' },
-            { id: 59, category: 'parking', title: 'Interlocking Mats', price: '₹ 6,200', img: 'images/home/parking/parking8.png', desc: 'Oil-resistant anti-slip mats for car maintenance area.' },
-            { id: 60, category: 'parking', title: 'Traffic Mirrors', price: '₹ 3,200', img: 'images/home/parking/parking9.png', desc: 'Wide-angle convex mirrors for safe blind-spot parking.' },
+            { id: 1, category: 'parking', title: 'Parking 1', price: '₹ 10500', img: 'images/home/parking/parking1.png', desc: 'Premium parking 1 for your space.' },
+            { id: 2, category: 'parking', title: 'Parking 2', price: '₹ 11000', img: 'images/home/parking/parking2.png', desc: 'Premium parking 2 for your space.' },
+            { id: 3, category: 'parking', title: 'Parking 3', price: '₹ 11500', img: 'images/home/parking/parking3.png', desc: 'Premium parking 3 for your space.' },
+            { id: 4, category: 'parking', title: 'Parking 4', price: '₹ 12000', img: 'images/home/parking/parking4.png', desc: 'Premium parking 4 for your space.' },
+            { id: 5, category: 'parking', title: 'Parking 5', price: '₹ 12500', img: 'images/home/parking/parking5.png', desc: 'Premium parking 5 for your space.' },
+            { id: 6, category: 'parking', title: 'Parking 6', price: '₹ 13000', img: 'images/home/parking/parking6.png', desc: 'Premium parking 6 for your space.' },
+            { id: 7, category: 'parking', title: 'Parking 7', price: '₹ 13500', img: 'images/home/parking/parking7.png', desc: 'Premium parking 7 for your space.' },
+            { id: 8, category: 'parking', title: 'Parking 8', price: '₹ 14000', img: 'images/home/parking/parking8.png', desc: 'Premium parking 8 for your space.' },
+            { id: 9, category: 'parking', title: 'Parking 9', price: '₹ 14500', img: 'images/home/parking/parking9.png', desc: 'Premium parking 9 for your space.' },
+            { id: 10, category: 'railing', title: 'Railing 10', price: '₹ 15000', img: 'images/home/railing/railing1.png', desc: 'Premium railing 10 for your space.' },
+            { id: 11, category: 'railing', title: 'Railing 11', price: '₹ 15500', img: 'images/home/railing/railing2.png', desc: 'Premium railing 11 for your space.' },
+            { id: 12, category: 'railing', title: 'Railing 12', price: '₹ 16000', img: 'images/home/railing/railing3.png', desc: 'Premium railing 12 for your space.' },
+            { id: 13, category: 'railing', title: 'Railing 13', price: '₹ 16500', img: 'images/home/railing/railing4.png', desc: 'Premium railing 13 for your space.' },
+            { id: 14, category: 'railing', title: 'Railing 14', price: '₹ 17000', img: 'images/home/railing/railing5.png', desc: 'Premium railing 14 for your space.' },
+            { id: 15, category: 'railing', title: 'Railing 15', price: '₹ 17500', img: 'images/home/railing/railing6.png', desc: 'Premium railing 15 for your space.' },
+            { id: 16, category: 'railing', title: 'Railing 16', price: '₹ 18000', img: 'images/home/railing/railing7.png', desc: 'Premium railing 16 for your space.' },
+            { id: 17, category: 'railing', title: 'Railing 17', price: '₹ 18500', img: 'images/home/railing/railing8.png', desc: 'Premium railing 17 for your space.' },
+            { id: 18, category: 'railing', title: 'Railing 18', price: '₹ 19000', img: 'images/home/railing/railing9.png', desc: 'Premium railing 18 for your space.' },
+            { id: 19, category: 'railing', title: 'Railing 19', price: '₹ 19500', img: 'images/home/railing/railing10.jpeg', desc: 'Premium railing 19 for your space.' },
+            { id: 20, category: 'railing', title: 'Railing 20', price: '₹ 20000', img: 'images/home/railing/railing11.jpeg', desc: 'Premium railing 20 for your space.' },
+            { id: 21, category: 'railing', title: 'Railing 21', price: '₹ 20500', img: 'images/home/railing/railing12.jpeg', desc: 'Premium railing 21 for your space.' },
+            { id: 22, category: 'railing', title: 'Railing 22', price: '₹ 21000', img: 'images/home/railing/railing13.jpeg', desc: 'Premium railing 22 for your space.' },
+            { id: 23, category: 'railing', title: 'Railing 23', price: '₹ 21500', img: 'images/home/railing/railing14.jpeg', desc: 'Premium railing 23 for your space.' },
+            { id: 24, category: 'railing', title: 'Railing 24', price: '₹ 22000', img: 'images/home/railing/railing15.jpeg', desc: 'Premium railing 24 for your space.' },
+            { id: 25, category: 'sofaset', title: 'Sofaset 25', price: '₹ 22500', img: 'images/home/sofaset/sofaset1.png', desc: 'Premium sofaset 25 for your space.' },
+            { id: 26, category: 'sofaset', title: 'Sofaset 26', price: '₹ 23000', img: 'images/home/sofaset/sofaset2.png', desc: 'Premium sofaset 26 for your space.' },
+            { id: 27, category: 'sofaset', title: 'Sofaset 27', price: '₹ 23500', img: 'images/home/sofaset/sofaset3.png', desc: 'Premium sofaset 27 for your space.' },
+            { id: 28, category: 'sofaset', title: 'Sofaset 28', price: '₹ 24000', img: 'images/home/sofaset/sofaset4.png', desc: 'Premium sofaset 28 for your space.' },
+            { id: 29, category: 'sofaset', title: 'Sofaset 29', price: '₹ 24500', img: 'images/home/sofaset/sofaset5.png', desc: 'Premium sofaset 29 for your space.' },
+            { id: 30, category: 'sofaset', title: 'Sofaset 30', price: '₹ 25000', img: 'images/home/sofaset/sofaset6.png', desc: 'Premium sofaset 30 for your space.' },
+            { id: 31, category: 'sofaset', title: 'Sofaset 31', price: '₹ 25500', img: 'images/home/sofaset/sofaset7.png', desc: 'Premium sofaset 31 for your space.' },
+            { id: 32, category: 'sofaset', title: 'Sofaset 32', price: '₹ 26000', img: 'images/home/sofaset/sofaset8.png', desc: 'Premium sofaset 32 for your space.' },
+            { id: 33, category: 'sofaset', title: 'Sofaset 33', price: '₹ 26500', img: 'images/home/sofaset/sofaset9.png', desc: 'Premium sofaset 33 for your space.' },
+            { id: 34, category: 'sofaset', title: 'Sofaset 34', price: '₹ 27000', img: 'images/home/sofaset/sofaset10.png', desc: 'Premium sofaset 34 for your space.' },
+            { id: 35, category: 'sofaset', title: 'Sofaset 35', price: '₹ 27500', img: 'images/home/sofaset/sofaset11.webp', desc: 'Premium sofaset 35 for your space.' },
+            { id: 36, category: 'sofaset', title: 'Sofaset 36', price: '₹ 28000', img: 'images/home/sofaset/sofaset12.webp', desc: 'Premium sofaset 36 for your space.' },
+            { id: 37, category: 'sr', title: 'Sr 37', price: '₹ 28500', img: 'images/home/sr/sr1.png', desc: 'Premium sr 37 for your space.' },
+            { id: 38, category: 'sr', title: 'Sr 38', price: '₹ 29000', img: 'images/home/sr/sr2.png', desc: 'Premium sr 38 for your space.' },
+            { id: 39, category: 'sr', title: 'Sr 39', price: '₹ 29500', img: 'images/home/sr/sr3.png', desc: 'Premium sr 39 for your space.' },
+            { id: 40, category: 'sr', title: 'Sr 40', price: '₹ 30000', img: 'images/home/sr/sr4.png', desc: 'Premium sr 40 for your space.' },
+            { id: 41, category: 'sr', title: 'Sr 41', price: '₹ 30500', img: 'images/home/sr/sr5.png', desc: 'Premium sr 41 for your space.' },
+            { id: 42, category: 'sr', title: 'Sr 42', price: '₹ 31000', img: 'images/home/sr/sr6.png', desc: 'Premium sr 42 for your space.' },
+            { id: 43, category: 'sr', title: 'Sr 43', price: '₹ 31500', img: 'images/home/sr/sr7.png', desc: 'Premium sr 43 for your space.' },
+            { id: 44, category: 'sr', title: 'Sr 44', price: '₹ 32000', img: 'images/home/sr/sr8.png', desc: 'Premium sr 44 for your space.' },
+            { id: 45, category: 'sr', title: 'Sr 45', price: '₹ 32500', img: 'images/home/sr/sr9.png', desc: 'Premium sr 45 for your space.' },
+            { id: 46, category: 'sr', title: 'Sr 46', price: '₹ 33000', img: 'images/home/sr/sr10.jpeg', desc: 'Premium sr 46 for your space.' },
+            { id: 47, category: 'sr', title: 'Sr 47', price: '₹ 33500', img: 'images/home/sr/sr11.jpeg', desc: 'Premium sr 47 for your space.' },
+            { id: 48, category: 'sr', title: 'Sr 48', price: '₹ 34000', img: 'images/home/sr/sr12.jpeg', desc: 'Premium sr 48 for your space.' },
+            { id: 49, category: 'sr', title: 'Sr 49', price: '₹ 34500', img: 'images/home/sr/sr13.jpeg', desc: 'Premium sr 49 for your space.' },
+            { id: 50, category: 'sr', title: 'Sr 50', price: '₹ 35000', img: 'images/home/sr/sr14.jpeg', desc: 'Premium sr 50 for your space.' },
+            { id: 51, category: 'sr', title: 'Sr 51', price: '₹ 35500', img: 'images/home/sr/sr15.jpeg', desc: 'Premium sr 51 for your space.' },
+            { id: 52, category: 'tables', title: 'Tables 52', price: '₹ 36000', img: 'images/home/tables/table1.png', desc: 'Premium tables 52 for your space.' },
+            { id: 53, category: 'tables', title: 'Tables 53', price: '₹ 36500', img: 'images/home/tables/table2.png', desc: 'Premium tables 53 for your space.' },
+            { id: 54, category: 'tables', title: 'Tables 54', price: '₹ 37000', img: 'images/home/tables/table3.png', desc: 'Premium tables 54 for your space.' },
+            { id: 55, category: 'tables', title: 'Tables 55', price: '₹ 37500', img: 'images/home/tables/table4.png', desc: 'Premium tables 55 for your space.' },
+            { id: 56, category: 'tables', title: 'Tables 56', price: '₹ 38000', img: 'images/home/tables/table5.png', desc: 'Premium tables 56 for your space.' },
+            { id: 57, category: 'tables', title: 'Tables 57', price: '₹ 38500', img: 'images/home/tables/table6.png', desc: 'Premium tables 57 for your space.' },
+            { id: 58, category: 'tables', title: 'Tables 58', price: '₹ 39000', img: 'images/home/tables/table7.png', desc: 'Premium tables 58 for your space.' },
+            { id: 59, category: 'tables', title: 'Tables 59', price: '₹ 39500', img: 'images/home/tables/table8.png', desc: 'Premium tables 59 for your space.' },
+            { id: 60, category: 'tables', title: 'Tables 60', price: '₹ 40000', img: 'images/home/tables/table9.png', desc: 'Premium tables 60 for your space.' },
+            { id: 61, category: 'tables', title: 'Tables 61', price: '₹ 40500', img: 'images/home/tables/table10.png', desc: 'Premium tables 61 for your space.' },
+            { id: 62, category: 'tables', title: 'Tables 62', price: '₹ 41000', img: 'images/home/tables/table11.png', desc: 'Premium tables 62 for your space.' },
+            { id: 63, category: 'tables', title: 'Tables 63', price: '₹ 41500', img: 'images/home/tables/table12.png', desc: 'Premium tables 63 for your space.' },
+            { id: 64, category: 'tables', title: 'Tables 64', price: '₹ 42000', img: 'images/home/tables/table13.jpeg', desc: 'Premium tables 64 for your space.' },
+            { id: 65, category: 'tables', title: 'Tables 65', price: '₹ 42500', img: 'images/home/tables/table14.jpeg', desc: 'Premium tables 65 for your space.' },
+            { id: 66, category: 'tables', title: 'Tables 66', price: '₹ 43000', img: 'images/home/tables/table15.jpeg', desc: 'Premium tables 66 for your space.' },
+            { id: 67, category: 'tables', title: 'Tables 67', price: '₹ 43500', img: 'images/home/tables/table16.jpeg', desc: 'Premium tables 67 for your space.' },
+            { id: 68, category: 'tables', title: 'Tables 68', price: '₹ 44000', img: 'images/home/tables/table17.jpeg', desc: 'Premium tables 68 for your space.' },
+            { id: 69, category: 'tables', title: 'Tables 69', price: '₹ 44500', img: 'images/home/tables/table18.jpeg', desc: 'Premium tables 69 for your space.' },
+            { id: 70, category: 'tables', title: 'Tables 70', price: '₹ 45000', img: 'images/home/tables/table19.jpeg', desc: 'Premium tables 70 for your space.' },
+            { id: 71, category: 'tables', title: 'Tables 71', price: '₹ 45500', img: 'images/home/tables/table20.jpeg', desc: 'Premium tables 71 for your space.' },
+            { id: 72, category: 'tables', title: 'Tables 72', price: '₹ 46000', img: 'images/home/tables/table21.jpeg', desc: 'Premium tables 72 for your space.' },
+            { id: 73, category: 'tables', title: 'Tables 73', price: '₹ 46500', img: 'images/home/tables/table22.jpeg', desc: 'Premium tables 73 for your space.' },
+            { id: 74, category: 'tables', title: 'Tables 74', price: '₹ 47000', img: 'images/home/tables/table23.jpeg', desc: 'Premium tables 74 for your space.' },
+            { id: 75, category: 'tables', title: 'Tables 75', price: '₹ 47500', img: 'images/home/tables/table24.jpeg', desc: 'Premium tables 75 for your space.' },
+            { id: 76, category: 'walldecor', title: 'Walldecor 76', price: '₹ 48000', img: 'images/home/walldecor/wd1.jpeg', desc: 'Premium walldecor 76 for your space.' },
+            { id: 77, category: 'walldecor', title: 'Walldecor 77', price: '₹ 48500', img: 'images/home/walldecor/wd2.jpeg', desc: 'Premium walldecor 77 for your space.' },
+            { id: 78, category: 'walldecor', title: 'Walldecor 78', price: '₹ 49000', img: 'images/home/walldecor/wd3.jpeg', desc: 'Premium walldecor 78 for your space.' },
+            { id: 79, category: 'walldecor', title: 'Walldecor 79', price: '₹ 49500', img: 'images/home/walldecor/wd4.jpeg', desc: 'Premium walldecor 79 for your space.' },
+            { id: 80, category: 'walldecor', title: 'Walldecor 80', price: '₹ 50000', img: 'images/home/walldecor/wd5.jpeg', desc: 'Premium walldecor 80 for your space.' },
+            { id: 81, category: 'walldecor', title: 'Walldecor 81', price: '₹ 50500', img: 'images/home/walldecor/wd6.jpeg', desc: 'Premium walldecor 81 for your space.' },
+            { id: 82, category: 'walldecor', title: 'Walldecor 82', price: '₹ 51000', img: 'images/home/walldecor/wd7.jpeg', desc: 'Premium walldecor 82 for your space.' },
+            { id: 83, category: 'walldecor', title: 'Walldecor 83', price: '₹ 51500', img: 'images/home/walldecor/wd8.jpeg', desc: 'Premium walldecor 83 for your space.' },
+            { id: 84, category: 'walldecor', title: 'Walldecor 84', price: '₹ 52000', img: 'images/home/walldecor/wd9.jpeg', desc: 'Premium walldecor 84 for your space.' },
+            { id: 85, category: 'walldecor', title: 'Walldecor 85', price: '₹ 52500', img: 'images/home/walldecor/wd10.jpeg', desc: 'Premium walldecor 85 for your space.' },
+            { id: 86, category: 'walldecor', title: 'Walldecor 86', price: '₹ 53000', img: 'images/home/walldecor/wd11.jpeg', desc: 'Premium walldecor 86 for your space.' },
+            { id: 87, category: 'walldecor', title: 'Walldecor 87', price: '₹ 53500', img: 'images/home/walldecor/wd12.jpeg', desc: 'Premium walldecor 87 for your space.' },
+            { id: 88, category: 'ws', title: 'Ws 88', price: '₹ 54000', img: 'images/home/ws/ws1.png', desc: 'Premium ws 88 for your space.' },
+            { id: 89, category: 'ws', title: 'Ws 89', price: '₹ 54500', img: 'images/home/ws/ws2.png', desc: 'Premium ws 89 for your space.' },
+            { id: 90, category: 'ws', title: 'Ws 90', price: '₹ 55000', img: 'images/home/ws/ws3.png', desc: 'Premium ws 90 for your space.' },
+            { id: 91, category: 'ws', title: 'Ws 91', price: '₹ 55500', img: 'images/home/ws/ws4.png', desc: 'Premium ws 91 for your space.' },
+            { id: 92, category: 'ws', title: 'Ws 92', price: '₹ 56000', img: 'images/home/ws/ws5.png', desc: 'Premium ws 92 for your space.' },
+            { id: 93, category: 'ws', title: 'Ws 93', price: '₹ 56500', img: 'images/home/ws/ws6.png', desc: 'Premium ws 93 for your space.' },
+            { id: 94, category: 'ws', title: 'Ws 94', price: '₹ 57000', img: 'images/home/ws/ws7.png', desc: 'Premium ws 94 for your space.' },
+            { id: 95, category: 'ws', title: 'Ws 95', price: '₹ 57500', img: 'images/home/ws/ws8.png', desc: 'Premium ws 95 for your space.' },
+            { id: 96, category: 'ws', title: 'Ws 96', price: '₹ 58000', img: 'images/home/ws/ws9.png', desc: 'Premium ws 96 for your space.' },
         ];
 
         function renderProducts() {
@@ -518,12 +565,13 @@
 
         function getIcon(category) {
             const icons = {
-                'sofaset': 'chair',
+                'parking': 'car',
+                'walldecor': 'image',
                 'tables': 'fork-knife',
-                'wall-separator': 'layout',
-                'storage-racks': 'package',
+                'ws': 'layout',
+                'sr': 'package',
                 'railing': 'stairs',
-                'parking': 'car'
+                'sofaset': 'chair',
             };
             return icons[category] || 'armchair';
         }
@@ -532,7 +580,7 @@
             pageNumbersContainer.innerHTML = '';
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
-                btn.className = `w-12 h-12 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${i === currentPage ? 'bg-[#2c1e14] text-white border-[#2c1e14]' : 'border-[#2c1e14]/20 hover:border-[#2c1e14]'}`;
+                btn.className = `shrink-0 w-12 h-12 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${i === currentPage ? 'bg-[#2c1e14] text-white border-[#2c1e14]' : 'border-[#2c1e14]/20 hover:border-[#2c1e14]'}`;
                 btn.textContent = i;
                 btn.onclick = () => {
                     currentPage = i;
@@ -577,6 +625,34 @@
         // Initialize
         window.addEventListener('load', renderProducts);
     </script>
+<script>
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isMenuOpen = mobileMenu.classList.contains('opacity-100');
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                    mobileBtn.innerHTML = '<i class="ph ph-x text-2xl"></i>';
+                }
+            });
+            
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                });
+            });
+        }
+        </script>
 </body>
 
 </html>

@@ -140,6 +140,17 @@
             justify-content: center;
             transition: opacity 0.8s ease;
         }
+    
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
     </style>
 </head>
 
@@ -150,7 +161,7 @@
     </div>
 
     <nav class="fixed top-0 w-full z-50 py-2 px-8 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 relative z-50">
             <div class="text-2xl font-bold tracking-tighter uppercase text-[#3d2b1f] serif">Mironix</div>
         </a>
 
@@ -167,15 +178,34 @@
                 class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CAFE</a>
             <a href="cnc.html" class="text-[#6d3d14] transition py-2 border-b-2 border-[#6d3d14]">CNC</a>
         </div>
+    
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-2 text-[#3d2b1f]" aria-label="Toggle Menu">
+            <i class="ph ph-list text-2xl"></i>
+        </button>
     </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+            <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
+                <a href="index.html" class="hover:text-[#bfa38a] transition text-center">HOME</a>
+                <a href="home.html" class="hover:text-[#bfa38a] transition text-center">LIVING</a>
+                <a href="office.html" class="hover:text-[#bfa38a] transition text-center">OFFICE</a>
+                <a href="school.html" class="hover:text-[#bfa38a] transition text-center">INSTITUTIONAL</a>
+                <a href="cafe.html" class="hover:text-[#bfa38a] transition text-center">CAFE</a>
+                <a href="cnc.html" class="hover:text-[#bfa38a] transition text-center">CNC</a>
+
+            </div>
+        </div>
+    
 
     <!-- Header Hero -->
     <header class="pt-24 mt-0 border-b border-black/10">
         <div class="text-white z-10 px-6 reveal">
-            <h1 class="text-4xl md:text-6xl serif mb-4 drop-shadow-lg">CNC Machining</h1>
+            <h1 class="text-4xl md:text-6xl serif mb-4 drop-shadow-lg">CNC Designs</h1>
             <p
                 class="text-white/80 text-sm md:text-base max-w-2xl mx-auto uppercase tracking-[0.3em] font-light drop-shadow">
-                Precision Parts & Custom Engineering
+                Architectural Panels & Custom Metalcraft
             </p>
         </div>
     </header>
@@ -190,22 +220,19 @@
                     data-filter="all">All</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="routing">Routing</button>
+                    data-filter="panels">Panels</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="laser">Laser</button>
+                    data-filter="partitions">Partitions</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="plasma">Plasma</button>
+                    data-filter="facades">Facades</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="milling">Milling</button>
+                    data-filter="gates">Gates & Grills</button>
                 <button
                     class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="lathe">Lathe</button>
-                <button
-                    class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                    data-filter="spares">Spares</button>
+                    data-filter="custom">Custom Art</button>
             </div>
 
             <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 min-h-[600px]">
@@ -219,7 +246,7 @@
                         class="w-12 h-12 rounded-full border border-[#2c1e14]/20 flex items-center justify-center hover:bg-[#2c1e14] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none">
                         <i class="ph ph-caret-left"></i>
                     </button>
-                    <div id="page-numbers" class="flex gap-2">
+                    <div id="page-numbers" class="flex gap-2 max-w-[calc(100vw-140px)] md:max-w-full overflow-x-auto no-scrollbar scroll-smooth py-1">
                         <!-- Page buttons will be injected here -->
                     </div>
                     <button id="next-btn"
@@ -273,15 +300,15 @@
 
     <script>
         const products = [
-            { id: 1, category: 'routing', title: 'Industrial CNC Router', price: '₹ 4,50,000', img: 'images/cnc/cnc1.png', desc: 'Heavy-duty 3-axis CNC router for woodworking and sign making.' },
-            { id: 2, category: 'laser', title: 'CO2 Laser Engraver', price: '₹ 1,85,000', img: 'images/cnc/cnc2.png', desc: 'High-precision laser cutter for acrylic, wood, and leather.' },
-            { id: 3, category: 'plasma', title: 'Plasma Cutting Profile', price: '₹ 3,20,000', img: 'images/cnc/cnc3.png', desc: 'Advanced plasma cutting table for metal fabrication.' },
-            { id: 4, category: 'milling', title: '5-Axis Milling Center', price: '₹ 12,50,000', img: 'images/cnc/cnc4.png', desc: 'State-of-the-art milling machine for complex aerospace parts.' },
-            { id: 5, category: 'lathe', title: 'CNC Turning Lathe', price: '₹ 6,40,000', img: 'images/cnc/cnc5.png', desc: 'High-speed automated turning operations with exact tolerances.' },
-            { id: 6, category: 'spares', title: 'Spindle Motor 3kW', price: '₹ 28,000', img: 'images/cnc/cnc6.jpeg', desc: 'Air-cooled high-speed spindle motor replacement.' },
-            { id: 7, category: 'routing', title: 'Desktop Mini Router', price: '₹ 65,000', img: 'images/cnc/cnc7.jpeg', desc: 'Compact CNC router ideal for hobbyists and small prototyping.' },
-            { id: 8, category: 'laser', title: 'Fiber Laser Marker', price: '₹ 2,10,000', img: 'images/cnc/cnc8.jpeg', desc: 'Fast, permanent marking on metals and hard plastics.' },
-            { id: 9, category: 'spares', title: 'Stepper Drive Kit', price: '₹ 12,500', img: 'images/cnc/cnc9.jpeg', desc: 'Complete NEMA 34 stepper motor and driver kit.' }
+            { id: 1, category: 'panels', title: 'Geometric Wall Panel', price: '₹ 12,000', img: 'images/cnc/cnc1.png', desc: 'Precision-cut geometric patterns for interior wall styling.' },
+            { id: 2, category: 'partitions', title: 'Floral Room Divider', price: '₹ 24,500', img: 'images/cnc/cnc2.png', desc: 'Elegant floral CNC cut room partition for living spaces.' },
+            { id: 3, category: 'facades', title: 'Modern Exterior Facade', price: '₹ 45,000', img: 'images/cnc/cnc3.png', desc: 'Durable metal facade with intricate contemporary designs.' },
+            { id: 4, category: 'gates', title: 'Luxury Estate Gate', price: '₹ 85,000', img: 'images/cnc/cnc4.png', desc: 'Heavy-duty CNC cut main gate with an imposing design.' },
+            { id: 5, category: 'custom', title: 'Bespoke Metal Art', price: '₹ 18,000', img: 'images/cnc/cnc5.png', desc: 'Custom CNC crafted metal wall art for premium interiors.' },
+            { id: 6, category: 'panels', title: 'Abstract Deco Panel', price: '₹ 14,500', img: 'images/cnc/cnc6.jpeg', desc: 'Abstract decorative panel offering a unique visual texture.' },
+            { id: 7, category: 'partitions', title: 'Lattice Screen', price: '₹ 22,000', img: 'images/cnc/cnc7.jpeg', desc: 'Traditional lattice design modernized through precise CNC machining.' },
+            { id: 8, category: 'facades', title: 'Architectural Cladding', price: '₹ 55,000', img: 'images/cnc/cnc8.jpeg', desc: 'Large-scale CNC cladding for commercial architecture.' },
+            { id: 9, category: 'gates', title: 'Contemporary Grill', price: '₹ 32,000', img: 'images/cnc/cnc9.jpeg', desc: 'Minimalist contemporary window and balcony grill.' }
         ];
 
         let currentCategory = 'all';
@@ -297,14 +324,13 @@
 
         function getIcon(category) {
             const icons = {
-                'routing': 'router',
-                'laser': 'lightning',
-                'plasma': 'fire',
-                'milling': 'cogs',
-                'lathe': 'cylinder',
-                'spares': 'wrench'
+                'panels': 'squares-four',
+                'partitions': 'columns',
+                'facades': 'buildings',
+                'gates': 'door',
+                'custom': 'paint-brush'
             };
-            return icons[category] || 'gear';
+            return icons[category] || 'hexagon';
         }
 
         function renderProducts() {
@@ -373,7 +399,7 @@
             pageNumbersContainer.innerHTML = '';
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
-                btn.className = `w-12 h-12 rounded-full border text-xs font-bold transition-all duration-300 ${i === currentPage
+                btn.className = `shrink-0 w-12 h-12 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${i === currentPage
                     ? 'bg-[#2c1e14] text-white border-[#2c1e14]'
                     : 'border-[#2c1e14]/20 text-[#2c1e14] hover:border-[#2c1e14]'
                     }`;
@@ -464,6 +490,34 @@
         // Initial render
         renderProducts();
     </script>
+<script>
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isMenuOpen = mobileMenu.classList.contains('opacity-100');
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                    mobileBtn.innerHTML = '<i class="ph ph-x text-2xl"></i>';
+                }
+            });
+            
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                });
+            });
+        }
+        </script>
 </body>
 
 </html>

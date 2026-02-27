@@ -143,6 +143,17 @@
             justify-content: center;
             transition: opacity 0.8s ease;
         }
+    
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
     </style>
 </head>
 
@@ -153,7 +164,7 @@
     </div>
 
     <nav class="fixed top-0 w-full z-50 py-2 px-8 md:px-12 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-3 relative z-50">
             <div class="text-2xl font-bold tracking-tighter uppercase text-[#3d2b1f] serif">Mironix</div>
         </a>
 
@@ -170,7 +181,26 @@
             <a href="cnc.html"
                 class="hover:text-[#bfa38a] transition py-2 border-b-2 border-transparent hover:border-[#bfa38a]">CNC</a>
         </div>
+    
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden relative z-50 p-2 text-[#3d2b1f]" aria-label="Toggle Menu">
+            <i class="ph ph-list text-2xl"></i>
+        </button>
     </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#fcfaf7] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 z-40">
+            <div class="flex flex-col items-center gap-8 text-lg font-bold tracking-[0.2em] text-[#3d2b1f]">
+                <a href="index.html" class="hover:text-[#bfa38a] transition text-center">HOME</a>
+                <a href="home.html" class="hover:text-[#bfa38a] transition text-center">LIVING</a>
+                <a href="office.html" class="hover:text-[#bfa38a] transition text-center">OFFICE</a>
+                <a href="school.html" class="hover:text-[#bfa38a] transition text-center">INSTITUTIONAL</a>
+                <a href="cafe.html" class="hover:text-[#bfa38a] transition text-center">CAFE</a>
+                <a href="cnc.html" class="hover:text-[#bfa38a] transition text-center">CNC</a>
+
+            </div>
+        </div>
+    
 
     <!-- Header Hero -->
     <header>
@@ -231,7 +261,7 @@
                         class="w-12 h-12 rounded-full border border-[#2c1e14]/20 flex items-center justify-center hover:bg-[#2c1e14] hover:text-white transition-all duration-300 disabled:opacity-30 disabled:pointer-events-none">
                         <i class="ph ph-caret-left"></i>
                     </button>
-                    <div id="page-numbers" class="flex gap-2">
+                    <div id="page-numbers" class="flex gap-2 max-w-[calc(100vw-140px)] md:max-w-full overflow-x-auto no-scrollbar scroll-smooth py-1">
                         <!-- Page buttons will be injected here -->
                     </div>
                     <button id="next-btn"
@@ -441,7 +471,7 @@
             pageNumbersContainer.innerHTML = '';
             for (let i = 1; i <= totalPages; i++) {
                 const btn = document.createElement('button');
-                btn.className = `w-12 h-12 rounded-full border text-xs font-bold transition-all duration-300 ${i === currentPage
+                btn.className = `shrink-0 w-12 h-12 rounded-full border flex items-center justify-center text-[10px] font-bold transition-all duration-300 ${i === currentPage
                     ? 'bg-[#2c1e14] text-white border-[#2c1e14]'
                     : 'border-[#2c1e14]/20 text-[#2c1e14] hover:border-[#2c1e14]'
                     }`;
@@ -488,6 +518,34 @@
             }
         });
     </script>
+<script>
+        // Mobile Menu Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                const isMenuOpen = mobileMenu.classList.contains('opacity-100');
+                if (isMenuOpen) {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+                    mobileBtn.innerHTML = '<i class="ph ph-x text-2xl"></i>';
+                }
+            });
+            
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    mobileBtn.innerHTML = '<i class="ph ph-list text-2xl"></i>';
+                });
+            });
+        }
+        </script>
 </body>
 
 </html>
