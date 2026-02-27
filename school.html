@@ -218,38 +218,20 @@
         <div class="max-w-[1400px] mx-auto">
             <!-- Category Filter -->
             <div class="overflow-x-auto no-scrollbar w-full mb-16 reveal">
-                <div id="filter-bar"
+                                <div id="filter-bar"
                     class="flex flex-nowrap items-center gap-4 md:gap-8 min-w-max pb-4 px-2 md:justify-center">
                     <button
-                        class="category-btn active bg-[#2c1e14] text-white text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14] transition-all duration-300"
+                        class="category-btn active text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14] bg-[#2c1e14] text-white transition-all duration-300"
                         data-filter="all">All</button>
                     <button
                         class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="classroom">Classroom</button>
+                        data-filter="benches">Benches</button>
                     <button
                         class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="laboratory">Laboratory</button>
+                        data-filter="labs">Labs</button>
                     <button
                         class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
                         data-filter="library">Library</button>
-                    <button
-                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="kindergarten">Kindergarten</button>
-                    <button
-                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="lecture-hall">Lecture Hall</button>
-                    <button
-                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="corridor">Corridor</button>
-                    <button
-                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="cafeteria">Cafeteria</button>
-                    <button
-                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="auditorium">Auditorium</button>
-                    <button
-                        class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="recreation">Recreation</button>
                 </div>
 
             </div>
@@ -390,28 +372,36 @@
         const itemsPerPage = 6;
 
         const products = [
-            { id: 1, category: 'classroom', title: 'Collaborative Dual Desk', price: '₹ 8,500', img: 'images/institutional/institutional1.png', desc: 'Promotes teamwork with ergonomic seating and shared workspace.' },
-            { id: 2, category: 'laboratory', title: 'Pro-Grade Lab Station', price: '₹ 24,999', img: 'images/institutional/institutional2.png', desc: 'Chemical-resistant surfaces with integrated utility sinks and storage.' },
-            { id: 3, category: 'library', title: 'Modular Library Shelving', price: '₹ 15,000', img: 'images/institutional/institutional3.png', desc: 'Flexible double-sided units with adjustable shelves and signage.' },
-            { id: 4, category: 'kindergarten', title: 'KidSafe Activity Table', price: '₹ 6,500', img: 'images/institutional/institutional4.png', desc: 'Rounded corners and height-adjustable legs for growing learners.' },
-            { id: 5, category: 'lecture-hall', title: 'Digital Smart Podium', price: '₹ 28,000', img: 'images/institutional/institutional5.png', desc: 'Integrated AV controls and laptop interface for modern teaching.' },
-            { id: 6, category: 'corridor', title: 'Secure Steel Lockers', price: '₹ 11,200', img: 'images/institutional/institutional6.png', desc: 'Ventilated 3-tier units with heavy-duty hasp locks.' },
-            { id: 7, category: 'cafeteria', title: 'Industrial Cafeteria Set', price: '₹ 18,500', img: 'images/institutional/institutional7.png', desc: 'Durable laminate top with attached swivel seating for easy cleaning.' },
-            { id: 8, category: 'auditorium', title: 'Plush Theater Seating', price: '₹ 9,500', img: 'images/institutional/institutional8.png', desc: 'Acoustic fabric upholstery with auto-tip mechanism.' },
-            { id: 9, category: 'recreation', title: 'Modular Soft Play', price: '₹ 5,500', img: 'images/institutional/institutional9.png', desc: 'Foam shapes with easy-clean vinyl covers for creative play.' }
+            { id: 1, category: 'benches', title: 'Benches 1', price: '₹ 14500', img: 'images/institutional/benches/bences5.png', desc: 'Premium benches 1 for institutional spaces.' },
+            { id: 2, category: 'benches', title: 'Benches 2', price: '₹ 15000', img: 'images/institutional/benches/benches1.jpeg', desc: 'Premium benches 2 for institutional spaces.' },
+            { id: 3, category: 'benches', title: 'Benches 3', price: '₹ 15500', img: 'images/institutional/benches/benches2.jpeg', desc: 'Premium benches 3 for institutional spaces.' },
+            { id: 4, category: 'benches', title: 'Benches 4', price: '₹ 16000', img: 'images/institutional/benches/benches3.jpeg', desc: 'Premium benches 4 for institutional spaces.' },
+            { id: 5, category: 'benches', title: 'Benches 5', price: '₹ 16500', img: 'images/institutional/benches/benches4.png', desc: 'Premium benches 5 for institutional spaces.' },
+            { id: 6, category: 'benches', title: 'Benches 6', price: '₹ 17000', img: 'images/institutional/benches/benches6.png', desc: 'Premium benches 6 for institutional spaces.' },
+            { id: 7, category: 'benches', title: 'Benches 7', price: '₹ 17500', img: 'images/institutional/benches/benches7.jpeg', desc: 'Premium benches 7 for institutional spaces.' },
+            { id: 8, category: 'benches', title: 'Benches 8', price: '₹ 18000', img: 'images/institutional/benches/benches8.jpeg', desc: 'Premium benches 8 for institutional spaces.' },
+            { id: 9, category: 'labs', title: 'Lab Equipment 9', price: '₹ 39500', img: 'images/institutional/labs/labs1.jpeg', desc: 'Premium labs 9 for institutional spaces.' },
+            { id: 10, category: 'labs', title: 'Lab Equipment 10', price: '₹ 40000', img: 'images/institutional/labs/labs2.png', desc: 'Premium labs 10 for institutional spaces.' },
+            { id: 11, category: 'labs', title: 'Lab Equipment 11', price: '₹ 40500', img: 'images/institutional/labs/labs3.png', desc: 'Premium labs 11 for institutional spaces.' },
+            { id: 12, category: 'labs', title: 'Lab Equipment 12', price: '₹ 41000', img: 'images/institutional/labs/labs4.jpeg', desc: 'Premium labs 12 for institutional spaces.' },
+            { id: 13, category: 'labs', title: 'Lab Equipment 13', price: '₹ 41500', img: 'images/institutional/labs/labs5.jpeg', desc: 'Premium labs 13 for institutional spaces.' },
+            { id: 14, category: 'labs', title: 'Lab Equipment 14', price: '₹ 42000', img: 'images/institutional/labs/labs6.jpeg', desc: 'Premium labs 14 for institutional spaces.' },
+            { id: 15, category: 'labs', title: 'Lab Equipment 15', price: '₹ 42500', img: 'images/institutional/labs/labs8.jpeg', desc: 'Premium labs 15 for institutional spaces.' },
+            { id: 16, category: 'library', title: 'Library 16', price: '₹ 30000', img: 'images/institutional/library/library1.jpeg', desc: 'Premium library 16 for institutional spaces.' },
+            { id: 17, category: 'library', title: 'Library 17', price: '₹ 30500', img: 'images/institutional/library/library2.jpeg', desc: 'Premium library 17 for institutional spaces.' },
+            { id: 18, category: 'library', title: 'Library 18', price: '₹ 31000', img: 'images/institutional/library/library3.png', desc: 'Premium library 18 for institutional spaces.' },
+            { id: 19, category: 'library', title: 'Library 19', price: '₹ 31500', img: 'images/institutional/library/library4.png', desc: 'Premium library 19 for institutional spaces.' },
+            { id: 20, category: 'library', title: 'Library 20', price: '₹ 32000', img: 'images/institutional/library/library5.png', desc: 'Premium library 20 for institutional spaces.' },
+            { id: 21, category: 'library', title: 'Library 21', price: '₹ 32500', img: 'images/institutional/library/library6.jpeg', desc: 'Premium library 21 for institutional spaces.' },
+            { id: 22, category: 'library', title: 'Library 22', price: '₹ 33000', img: 'images/institutional/library/library7.jpeg', desc: 'Premium library 22 for institutional spaces.' },
+            { id: 23, category: 'library', title: 'Library 23', price: '₹ 33500', img: 'images/institutional/library/library8.jpeg', desc: 'Premium library 23 for institutional spaces.' },
         ];
 
-        function getIcon(category) {
+                function getIcon(category) {
             const icons = {
-                'classroom': 'student',
-                'laboratory': 'flask',
-                'library': 'books',
-                'kindergarten': 'palette',
-                'lecture-hall': 'microphone-stage',
-                'corridor': 'lock-key',
-                'cafeteria': 'hamburger',
-                'auditorium': 'mask-happy',
-                'recreation': 'smiley'
+                'benches': 'student',
+                'labs': 'flask',
+                'library': 'books'
             };
             return icons[category] || 'graduation-cap';
         }
