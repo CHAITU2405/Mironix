@@ -215,26 +215,26 @@
         <div class="max-w-[1400px] mx-auto">
             <!-- Category Filter -->
             <div class="overflow-x-auto no-scrollbar w-full mb-16 reveal">
-                <div id="filter-bar"
+                                <div id="filter-bar"
                     class="flex flex-nowrap items-center gap-4 md:gap-8 min-w-max pb-4 px-2 md:justify-center">
                     <button
                         class="category-btn active bg-[#2c1e14] text-white text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14] transition-all duration-300"
                         data-filter="all">All</button>
                     <button
                         class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="panels">Panels</button>
+                        data-filter="cable-laying-services">Cable Laying Services</button>
                     <button
                         class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="partitions">Partitions</button>
+                        data-filter="metal-sheet-plasma-cutting-machine">Metal Sheet Plasma Cutting Machine</button>
                     <button
                         class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="facades">Facades</button>
+                        data-filter="nc-metal-sheet-press-bending-machine">Nc Metal Sheet Press Bending Machine</button>
                     <button
                         class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="gates">Gates & Grills</button>
+                        data-filter="powder-coating-service">Powder Coating Service</button>
                     <button
                         class="category-btn text-[10px] font-bold tracking-[0.2em] uppercase py-2 px-6 rounded-full border border-[#2c1e14]/20 hover:border-[#2c1e14] transition-all duration-300"
-                        data-filter="custom">Custom Art</button>
+                        data-filter="metal-sheet-cnc-laser-cutting">Metal Sheet Cnc Laser Cutting</button>
                 </div>
 
             </div>
@@ -304,15 +304,32 @@
 
     <script>
         const products = [
-            { id: 1, category: 'panels', title: 'Geometric Wall Panel', price: '₹ 12,000', img: 'images/cnc/cnc1.png', desc: 'Precision-cut geometric patterns for interior wall styling.' },
-            { id: 2, category: 'partitions', title: 'Floral Room Divider', price: '₹ 24,500', img: 'images/cnc/cnc2.png', desc: 'Elegant floral CNC cut room partition for living spaces.' },
-            { id: 3, category: 'facades', title: 'Modern Exterior Facade', price: '₹ 45,000', img: 'images/cnc/cnc3.png', desc: 'Durable metal facade with intricate contemporary designs.' },
-            { id: 4, category: 'gates', title: 'Luxury Estate Gate', price: '₹ 85,000', img: 'images/cnc/cnc4.png', desc: 'Heavy-duty CNC cut main gate with an imposing design.' },
-            { id: 5, category: 'custom', title: 'Bespoke Metal Art', price: '₹ 18,000', img: 'images/cnc/cnc5.png', desc: 'Custom CNC crafted metal wall art for premium interiors.' },
-            { id: 6, category: 'panels', title: 'Abstract Deco Panel', price: '₹ 14,500', img: 'images/cnc/cnc6.jpeg', desc: 'Abstract decorative panel offering a unique visual texture.' },
-            { id: 7, category: 'partitions', title: 'Lattice Screen', price: '₹ 22,000', img: 'images/cnc/cnc7.jpeg', desc: 'Traditional lattice design modernized through precise CNC machining.' },
-            { id: 8, category: 'facades', title: 'Architectural Cladding', price: '₹ 55,000', img: 'images/cnc/cnc8.jpeg', desc: 'Large-scale CNC cladding for commercial architecture.' },
-            { id: 9, category: 'gates', title: 'Contemporary Grill', price: '₹ 32,000', img: 'images/cnc/cnc9.jpeg', desc: 'Minimalist contemporary window and balcony grill.' }
+            { id: 1, category: 'cable-laying-services', title: 'Cable Laying Services 1', price: '₹ 26,000', img: 'images/cnc/Cable Laying Services/cl1.jpeg', desc: 'Premium cable laying services 1 for commercial and industrial use.' },
+            { id: 2, category: 'cable-laying-services', title: 'Cable Laying Services 2', price: '₹ 27,000', img: 'images/cnc/Cable Laying Services/cl2.jpeg', desc: 'Premium cable laying services 2 for commercial and industrial use.' },
+            { id: 3, category: 'metal-sheet-plasma-cutting-machine', title: 'Metal Sheet Plasma Cutting Machine 3', price: '₹ 88,000', img: 'images/cnc/Metal Sheet Plasma Cutting Machine/image1.jpeg', desc: 'Premium metal sheet plasma cutting machine 3 for commercial and industrial use.' },
+            { id: 4, category: 'metal-sheet-plasma-cutting-machine', title: 'Metal Sheet Plasma Cutting Machine 4', price: '₹ 89,000', img: 'images/cnc/Metal Sheet Plasma Cutting Machine/image2.jpeg', desc: 'Premium metal sheet plasma cutting machine 4 for commercial and industrial use.' },
+            { id: 5, category: 'metal-sheet-plasma-cutting-machine', title: 'Metal Sheet Plasma Cutting Machine 5', price: '₹ 90,000', img: 'images/cnc/Metal Sheet Plasma Cutting Machine/image3.jpeg', desc: 'Premium metal sheet plasma cutting machine 5 for commercial and industrial use.' },
+            { id: 6, category: 'metal-sheet-plasma-cutting-machine', title: 'Metal Sheet Plasma Cutting Machine 6', price: '₹ 91,000', img: 'images/cnc/Metal Sheet Plasma Cutting Machine/image4.jpeg', desc: 'Premium metal sheet plasma cutting machine 6 for commercial and industrial use.' },
+            { id: 7, category: 'metal-sheet-plasma-cutting-machine', title: 'Metal Sheet Plasma Cutting Machine 7', price: '₹ 92,000', img: 'images/cnc/Metal Sheet Plasma Cutting Machine/image5.jpeg', desc: 'Premium metal sheet plasma cutting machine 7 for commercial and industrial use.' },
+            { id: 8, category: 'metal-sheet-plasma-cutting-machine', title: 'Metal Sheet Plasma Cutting Machine 8', price: '₹ 93,000', img: 'images/cnc/Metal Sheet Plasma Cutting Machine/image6.jpeg', desc: 'Premium metal sheet plasma cutting machine 8 for commercial and industrial use.' },
+            { id: 9, category: 'metal-sheet-plasma-cutting-machine', title: 'Metal Sheet Plasma Cutting Machine 9', price: '₹ 94,000', img: 'images/cnc/Metal Sheet Plasma Cutting Machine/image7.jpeg', desc: 'Premium metal sheet plasma cutting machine 9 for commercial and industrial use.' },
+            { id: 10, category: 'nc-metal-sheet-press-bending-machine', title: 'Nc Metal Sheet Press Bending Machine 10', price: '₹ 130,000', img: 'images/cnc/NC Metal Sheet Press Bending Machine/image1.jpeg', desc: 'Premium nc metal sheet press bending machine 10 for commercial and industrial use.' },
+            { id: 11, category: 'nc-metal-sheet-press-bending-machine', title: 'Nc Metal Sheet Press Bending Machine 11', price: '₹ 131,000', img: 'images/cnc/NC Metal Sheet Press Bending Machine/image2.jpeg', desc: 'Premium nc metal sheet press bending machine 11 for commercial and industrial use.' },
+            { id: 12, category: 'nc-metal-sheet-press-bending-machine', title: 'Nc Metal Sheet Press Bending Machine 12', price: '₹ 132,000', img: 'images/cnc/NC Metal Sheet Press Bending Machine/image3.jpeg', desc: 'Premium nc metal sheet press bending machine 12 for commercial and industrial use.' },
+            { id: 13, category: 'nc-metal-sheet-press-bending-machine', title: 'Nc Metal Sheet Press Bending Machine 13', price: '₹ 133,000', img: 'images/cnc/NC Metal Sheet Press Bending Machine/image4.jpeg', desc: 'Premium nc metal sheet press bending machine 13 for commercial and industrial use.' },
+            { id: 14, category: 'nc-metal-sheet-press-bending-machine', title: 'Nc Metal Sheet Press Bending Machine 14', price: '₹ 134,000', img: 'images/cnc/NC Metal Sheet Press Bending Machine/image5.jpeg', desc: 'Premium nc metal sheet press bending machine 14 for commercial and industrial use.' },
+            { id: 15, category: 'nc-metal-sheet-press-bending-machine', title: 'Nc Metal Sheet Press Bending Machine 15', price: '₹ 135,000', img: 'images/cnc/NC Metal Sheet Press Bending Machine/image6.jpeg', desc: 'Premium nc metal sheet press bending machine 15 for commercial and industrial use.' },
+            { id: 16, category: 'nc-metal-sheet-press-bending-machine', title: 'Nc Metal Sheet Press Bending Machine 16', price: '₹ 136,000', img: 'images/cnc/NC Metal Sheet Press Bending Machine/image7.jpeg', desc: 'Premium nc metal sheet press bending machine 16 for commercial and industrial use.' },
+            { id: 17, category: 'powder-coating-service', title: 'Powder Coating Service 17', price: '₹ 32,000', img: 'images/cnc/Powder Coating Service/image1.jpeg', desc: 'Premium powder coating service 17 for commercial and industrial use.' },
+            { id: 18, category: 'powder-coating-service', title: 'Powder Coating Service 18', price: '₹ 33,000', img: 'images/cnc/Powder Coating Service/image2.jpeg', desc: 'Premium powder coating service 18 for commercial and industrial use.' },
+            { id: 19, category: 'powder-coating-service', title: 'Powder Coating Service 19', price: '₹ 34,000', img: 'images/cnc/Powder Coating Service/image3.jpeg', desc: 'Premium powder coating service 19 for commercial and industrial use.' },
+            { id: 20, category: 'powder-coating-service', title: 'Powder Coating Service 20', price: '₹ 35,000', img: 'images/cnc/Powder Coating Service/image4.jpeg', desc: 'Premium powder coating service 20 for commercial and industrial use.' },
+            { id: 21, category: 'metal-sheet-cnc-laser-cutting', title: 'Metal Sheet Cnc Laser Cutting 21', price: '₹ 171,000', img: 'images/cnc/metal sheet cnc laser cutting/image1.jpeg', desc: 'Premium metal sheet cnc laser cutting 21 for commercial and industrial use.' },
+            { id: 22, category: 'metal-sheet-cnc-laser-cutting', title: 'Metal Sheet Cnc Laser Cutting 22', price: '₹ 172,000', img: 'images/cnc/metal sheet cnc laser cutting/image2.jpeg', desc: 'Premium metal sheet cnc laser cutting 22 for commercial and industrial use.' },
+            { id: 23, category: 'metal-sheet-cnc-laser-cutting', title: 'Metal Sheet Cnc Laser Cutting 23', price: '₹ 173,000', img: 'images/cnc/metal sheet cnc laser cutting/image3.jpeg', desc: 'Premium metal sheet cnc laser cutting 23 for commercial and industrial use.' },
+            { id: 24, category: 'metal-sheet-cnc-laser-cutting', title: 'Metal Sheet Cnc Laser Cutting 24', price: '₹ 174,000', img: 'images/cnc/metal sheet cnc laser cutting/image4.jpeg', desc: 'Premium metal sheet cnc laser cutting 24 for commercial and industrial use.' },
+            { id: 25, category: 'metal-sheet-cnc-laser-cutting', title: 'Metal Sheet Cnc Laser Cutting 25', price: '₹ 175,000', img: 'images/cnc/metal sheet cnc laser cutting/image5.jpeg', desc: 'Premium metal sheet cnc laser cutting 25 for commercial and industrial use.' },
+            { id: 26, category: 'metal-sheet-cnc-laser-cutting', title: 'Metal Sheet Cnc Laser Cutting 26', price: '₹ 176,000', img: 'images/cnc/metal sheet cnc laser cutting/image6.jpeg', desc: 'Premium metal sheet cnc laser cutting 26 for commercial and industrial use.' },
         ];
 
         let currentCategory = 'all';
@@ -326,13 +343,13 @@
         const pageNumbersContainer = document.getElementById('page-numbers');
         const paginationInfo = document.getElementById('pagination-info');
 
-        function getIcon(category) {
+                function getIcon(category) {
             const icons = {
-                'panels': 'squares-four',
-                'partitions': 'columns',
-                'facades': 'buildings',
-                'gates': 'door',
-                'custom': 'paint-brush'
+                'cable-laying-services': 'lightning',
+                'metal-sheet-plasma-cutting-machine': 'scissors',
+                'nc-metal-sheet-press-bending-machine': 'hammer',
+                'powder-coating-service': 'paint-brush',
+                'metal-sheet-cnc-laser-cutting': 'laser'
             };
             return icons[category] || 'hexagon';
         }
