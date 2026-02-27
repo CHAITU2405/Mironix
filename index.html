@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
     <style>
         :root {
@@ -434,6 +435,179 @@
                     alt="Mironix Interior">
             </div>
         </div>
+
+        <!-- Expand Button -->
+        <div class="w-full text-center mt-16 md:mt-24 reveal relative z-10">
+            <button id="expand-machinery-btn"
+                class="btn-walnut inline-flex items-center gap-2 px-10 py-4 justify-center rounded-full text-[10px] font-bold tracking-[0.3em] uppercase shadow-xl hover:-translate-y-1">
+                Expand More <i class="ph ph-caret-down text-lg transition-transform duration-300" id="expand-icon"></i>
+            </button>
+        </div>
+
+        <!-- Expandable Section -->
+        <div id="advanced-machinery-wrapper"
+            class="grid transition-[grid-template-rows] duration-1000 ease-in-out mt-12 max-w-[1400px] mx-auto w-full relative z-0"
+            style="grid-template-rows: 0fr;">
+            <div class="overflow-hidden">
+                <div
+                    class="bg-[#dca843] rounded-[2.5rem] p-8 md:p-16 text-[#1a1a1a] shadow-2xl mx-4 md:mx-0 border border-white/10">
+                    <h3 class="text-2xl md:text-4xl serif text-center mb-10 leading-relaxed max-w-4xl mx-auto">
+                        At Our Facility, We Specialize in High-Precision Services Using Advanced Machinery, Including :-
+                    </h3>
+
+                    <div
+                        class="flex flex-wrap justify-center gap-x-8 md:gap-x-12 gap-y-6 mb-16 text-sm md:text-lg font-medium tracking-wide">
+                        <div class="flex items-center gap-3"><i
+                                class="ph-fill ph-check-square text-2xl text-[#1a1a1a]"></i>
+                            High Accuracy</div>
+                        <div class="flex items-center gap-3"><i
+                                class="ph-fill ph-check-square text-2xl text-[#1a1a1a]"></i>
+                            Custom Solutions</div>
+                        <div class="flex items-center gap-3"><i
+                                class="ph-fill ph-check-square text-2xl text-[#1a1a1a]"></i>
+                            Timely Delivery</div>
+                        <div class="flex items-center gap-3"><i
+                                class="ph-fill ph-check-square text-2xl text-[#1a1a1a]"></i>
+                            Affordable Rates</div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 min-h-[500px] pb-4">
+                        <!-- Card 1 -->
+                        <div class="bg-transparent group">
+                            <div
+                                class="rounded-3xl overflow-hidden border-4 border-white/20 mb-4 h-48 md:h-56 relative shadow-lg">
+                                <img src="images/index/work/Metal Sheet CNC Laser Cutting.jpeg"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    alt="CNC Laser Cutting">
+                            </div>
+                            <div
+                                class="bg-[#fcfaf7] text-[#2c1e14] rounded-2xl p-4 text-center shadow-xl h-24 flex items-center justify-center border border-black/5 transform -translate-y-8 mx-3 relative z-10 transition-transform duration-500 group-hover:-translate-y-10">
+                                <p
+                                    class="text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase leading-snug">
+                                    Metal Sheet CNC Laser Cutting</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-transparent group">
+                            <div
+                                class="rounded-3xl overflow-hidden border-4 border-white/20 mb-4 h-48 md:h-56 relative shadow-lg">
+                                <img src="images/index/work/Metal Sheet Plasma Cutting Machine.jpeg"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    alt="Plasma Cutting">
+                            </div>
+                            <div
+                                class="bg-[#fcfaf7] text-[#2c1e14] rounded-2xl p-4 text-center shadow-xl h-24 flex items-center justify-center border border-black/5 transform -translate-y-8 mx-3 relative z-10 transition-transform duration-500 group-hover:-translate-y-10">
+                                <p
+                                    class="text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase leading-snug">
+                                    Metal Sheet Plasma Cutting Machine</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="bg-transparent group">
+                            <div
+                                class="rounded-3xl overflow-hidden border-4 border-white/20 mb-4 h-48 md:h-56 relative shadow-lg">
+                                <img src="images/index/work/Cable Laying Services.jpeg"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    alt="Cable Laying">
+                            </div>
+                            <div
+                                class="bg-[#fcfaf7] text-[#2c1e14] rounded-2xl p-4 text-center shadow-xl h-24 flex items-center justify-center border border-black/5 transform -translate-y-8 mx-3 relative z-10 transition-transform duration-500 group-hover:-translate-y-10">
+                                <p
+                                    class="text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase leading-snug">
+                                    Cable Laying Services</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="bg-transparent group">
+                            <div
+                                class="rounded-3xl overflow-hidden border-4 border-white/20 mb-4 h-48 md:h-56 relative shadow-lg">
+                                <img src="images/index/work/CNC Metal Sheet Press Bending Machine.jpeg"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    alt="Press Bending">
+                            </div>
+                            <div
+                                class="bg-[#fcfaf7] text-[#2c1e14] rounded-2xl p-4 text-center shadow-xl h-24 flex items-center justify-center border border-black/5 transform -translate-y-8 mx-3 relative z-10 transition-transform duration-500 group-hover:-translate-y-10">
+                                <p
+                                    class="text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase leading-snug">
+                                    NC Metal Sheet Press Bending Machine</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 5 -->
+                        <div class="bg-transparent group">
+                            <div
+                                class="rounded-3xl overflow-hidden border-4 border-white/20 mb-4 h-48 md:h-56 relative shadow-lg">
+                                <img src="images/index/work/Powder Coating Service.jpeg"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    alt="Powder Coating">
+                            </div>
+                            <div
+                                class="bg-[#fcfaf7] text-[#2c1e14] rounded-2xl p-4 text-center shadow-xl h-24 flex flex-col items-center justify-center border border-black/5 transform -translate-y-8 mx-3 relative z-10 transition-transform duration-500 group-hover:-translate-y-10">
+                                <p
+                                    class="text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase leading-snug">
+                                    Powder Coating Service</p>
+                                <span class="text-[8px] md:text-[9px] opacity-60 mt-1 uppercase font-semibold">(With 7
+                                    Chemical Treatments)</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 6 -->
+                        <div class="bg-transparent group">
+                            <div
+                                class="rounded-3xl overflow-hidden border-4 border-white/20 mb-4 h-48 md:h-56 relative shadow-lg">
+                                <img src="images/index/work/Electric Pipe Bending Machine.jpeg"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    alt="Pipe Bending">
+                            </div>
+                            <div
+                                class="bg-[#fcfaf7] text-[#2c1e14] rounded-2xl p-4 text-center shadow-xl h-24 flex items-center justify-center border border-black/5 transform -translate-y-8 mx-3 relative z-10 transition-transform duration-500 group-hover:-translate-y-10">
+                                <p
+                                    class="text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase leading-snug">
+                                    Electric Pipe Bending Machine</p>
+                            </div>
+                        </div>
+
+                        <!-- Card 7 -->
+                        <div class="bg-transparent group">
+                            <div
+                                class="rounded-3xl overflow-hidden border-4 border-white/20 mb-4 h-48 md:h-56 relative shadow-lg">
+                                <img src="images/index/work/Bus Bar Multi-Functional Machine.jpeg"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    alt="Bus Bar Multi-functional">
+                            </div>
+                            <div
+                                class="bg-[#fcfaf7] text-[#2c1e14] rounded-2xl p-4 text-center shadow-xl h-24 flex flex-col items-center justify-center border border-black/5 transform -translate-y-8 mx-3 relative z-10 transition-transform duration-500 group-hover:-translate-y-10">
+                                <p
+                                    class="text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase leading-snug">
+                                    Bus Bar Multi-Functional Machine</p>
+                                <span class="text-[8px] md:text-[9px] opacity-60 mt-1 uppercase font-semibold">(Cutting,
+                                    Bending & Punching)</span>
+                            </div>
+                        </div>
+
+                        <!-- Card 8 -->
+                        <div class="bg-transparent group">
+                            <div
+                                class="rounded-3xl overflow-hidden border-4 border-white/20 mb-4 h-48 md:h-56 relative shadow-lg">
+                                <img src="images/index/work/Multi Function Pipe Bending Machine.jpeg"
+                                    class="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    alt="Multi Function Pipe Bending">
+                            </div>
+                            <div
+                                class="bg-[#fcfaf7] text-[#2c1e14] rounded-2xl p-4 text-center shadow-xl h-24 flex items-center justify-center border border-black/5 transform -translate-y-8 mx-3 relative z-10 transition-transform duration-500 group-hover:-translate-y-10">
+                                <p
+                                    class="text-[10px] md:text-[11px] font-bold tracking-[0.15em] uppercase leading-snug">
+                                    Multi Function Pipe Bending Machine</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- NEW Featured Carousel Section -->
@@ -799,6 +973,28 @@
         setTimeout(() => {
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         }, 500);
+
+        // Expand/Collapse Logic for Machinery Section
+        const expandBtn = document.getElementById('expand-machinery-btn');
+        const machineryWrapper = document.getElementById('advanced-machinery-wrapper');
+
+        if (expandBtn && machineryWrapper) {
+            expandBtn.addEventListener('click', () => {
+                const isExpanded = machineryWrapper.style.gridTemplateRows === '1fr';
+                machineryWrapper.style.gridTemplateRows = isExpanded ? '0fr' : '1fr';
+
+                if (isExpanded) {
+                    expandBtn.innerHTML = `Expand More <i class="ph ph-caret-down text-lg transition-transform duration-300" id="expand-icon"></i>`;
+                } else {
+                    expandBtn.innerHTML = `Show Less <i class="ph ph-caret-up text-lg transition-transform duration-300" id="expand-icon"></i>`;
+                }
+
+                // Refresh lenis slightly after transition to update scroll boundaries
+                if (typeof lenis !== 'undefined') {
+                    setTimeout(() => lenis.resize(), 1050);
+                }
+            });
+        }
 
         // Initialize Lenis
         const lenis = new Lenis({
