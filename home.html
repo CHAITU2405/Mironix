@@ -354,14 +354,7 @@
         // BFCache Restore Logic (Fixes blank screen on swipe back)
         window.addEventListener('pageshow', (event) => {
             if (event.persisted) {
-                // Ensure body opacity is reset if it was faded out
-                document.body.style.opacity = '1';
-                // Ensure loader is hidden
-                const loader = document.getElementById('loader');
-                if (loader) {
-                    loader.style.display = 'none';
-                    loader.style.opacity = '0';
-                }
+                window.location.reload();
             }
         });
 
